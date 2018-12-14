@@ -12,9 +12,15 @@ RMF     =       rm -f
 CFLAGS	=	-I./include/
 
 SRC	=	src/my_runner.c	\
+		src/destroy_my_ressources.c	\
+		src/draw_my_sprites.c	\
 		src/check_args.c	\
+		src/create_my_ressources.c	\
+		src/create_my_sounds.c	\
+		src/create_my_sprites.c	\
 		src/create_my_window.c	\
-		src/close_my_window.c
+		src/close_my_window.c	\
+		src/init_my_ressources.c	\
 
 MAIN	=	src/main.c
 

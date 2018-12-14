@@ -1,0 +1,43 @@
+/*
+** EPITECH PROJECT, 2018
+** destroy_my_ressources.c
+** File description:
+** destoys the game ressources
+*/
+
+#include "runner.h"
+
+static void free_all(game_object **obj_box, sound_t **sound_box)
+{
+    for (int i = 0; i < 4; i++)
+        free(obj_box[i]);
+    for (int i = 0; i < 3; i++)
+        free(sound_box[i]);
+    free(obj_box);
+    free(sound_box);
+}
+
+static void destroy_env(game_object *obj)
+{
+    sfTexture_destroy(obj->tex);
+    sfSprite_destroy(obj->spr);
+}
+
+static void destroy_music(sound_t *sound)
+{
+    sfMusic_stop(sound->music);
+    sfMusic_destroy(sound->music);
+}
+
+void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
+    sound_t **sound_box)
+{
+    sfRenderWindow_destroy(window);
+    destroy_env(obj_box[0]);
+    destroy_env(obj_box[1]);
+    destroy_env(obj_box[2]);
+    destroy_music(sound_box[0]);
+    destroy_music(sound_box[1]);
+    destroy_music(sound_box[2]);
+    free_all(obj_box, sound_box);
+}

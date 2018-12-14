@@ -14,6 +14,7 @@ sfRenderWindow *create_my_window(int width, int height, int bpp)
 
     window = sfRenderWindow_create(video_mode,
         "<xX_My_$w4ggY_MoTh3r_FuCkInG_RuNn3r_Xx>",
-        sfResize | sfClose, NULL);
+        sfResize | sfClose | sfFullscreen, NULL);
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     return (window);
 }
