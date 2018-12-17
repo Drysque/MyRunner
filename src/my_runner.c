@@ -7,25 +7,25 @@
 
 #include "runner.h"
 
-static bool wait_for_start(bool start_status, game_object **obj_box,
+static bool wait_for_start(bool *start_status, game_object **obj_box,
     sound_t **sound_box)
 {
-    while (start_status == false)
+    while (*start_status == false)
         if (sfKeyboard_isKeyPressed(sfKeySpace))
-            start_status = true;
+            *start_status = true;
     sfMusic_stop(sound_box[1]->music);
     sfMusic_play(sound_box[0]->music);
     sfMusic_play(sound_box[2]->music);
+    sfSprite_setPosition(obj_box[1]->spr, (sfVector2f){500.0, 830.0});
     sfSprite_setPosition(obj_box[2]->spr, (sfVector2f){2000.0, 2000.0});
-    sfSprite_setPosition(obj_box[3]->spr, (sfVector2f){500.0, 830.0});
-    return (start_status);
+    return (*start_status);
 }
 
 void my_runner(void)
 {
     sfEvent event;
     sfRenderWindow *window = create_my_window(1920, 1080, 32);
-    game_object **obj_box = malloc(sizeof(game_object *) * 4);
+    game_object **obj_box = malloc(sizeof(game_object *) * 8);
     sound_t **sound_box = malloc(sizeof(sound_t *) * 3);
     bool start_status = false;
 
@@ -35,7 +35,9 @@ void my_runner(void)
         sfRenderWindow_display(window);
         close_my_window(window, event);
         if (!start_status)
-            start_status = wait_for_start(start_status, obj_box, sound_box);
+            wait_for_start(&start_status, obj_box, sound_box);
+        move_env(obj_box);
+        sfRenderWindow_clear(window, sfBlack);
     }
     destroy_my_ressources(window, obj_box, sound_box);
 }

@@ -21,6 +21,7 @@ SRC	=	src/my_runner.c	\
 		src/create_my_window.c	\
 		src/close_my_window.c	\
 		src/init_my_ressources.c	\
+		src/move_env.c
 
 MAIN	=	src/main.c
 
@@ -46,10 +47,10 @@ $(NAME):
 # 	 ./$(CRIT)
 
 clean:
-	$(RMF) $(GCOVR)
+#	$(RMF) $(GCOVR)
 
 fclean:	clean
 	$(RMF) $(NAME)
-	$(RMF) $(CRIT)
+#	$(RMF) $(CRIT)
 
 re:	fclean all

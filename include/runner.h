@@ -16,8 +16,13 @@
 
 /*
 0 - LabEmpty
-1 - Slide
-2 - menu
+1 - Barry
+2 - LabEntry (menu)
+3 - Slide
+4 - EmptySlide
+5 - Slide2
+6 - EmptySlide2
+7 - windows background
 */
 
 typedef struct game_object_s
@@ -29,8 +34,9 @@ typedef struct game_object_s
 } game_object;
 
 /*
-0 - menu
-1 - constant music
+0 - constant music
+1 - menu
+2 - Smash
 */
 
 typedef struct sound_s

@@ -9,7 +9,7 @@
 
 void create_my_ressources(game_object **obj_box, sound_t **sound_box)
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 8; i++)
         obj_box[i] = malloc(sizeof(game_object));
     for (int i = 0; i < 3; i++)
         sound_box[i] = malloc(sizeof(sound_t));
@@ -17,4 +17,6 @@ void create_my_ressources(game_object **obj_box, sound_t **sound_box)
     create_my_sounds(sound_box);
     init_my_ressources(obj_box);
     sfMusic_play(sound_box[1]->music);
+    sfMusic_setLoop(sound_box[0]->music, sfTrue);
+    sfMusic_setLoop(sound_box[1]->music, sfTrue);
 }
