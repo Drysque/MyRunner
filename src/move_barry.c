@@ -7,12 +7,14 @@
 
 #include "runner.h"
 
-static void move_barry_rect(sfIntRect *rect, int reset, int offset)
+static void move_barry_rect(game_object *obj, int top, int reset, int offset)
 {
-    if (rect->left + offset >= (offset * 3) + reset)
-        rect->left = reset;
+    obj->rect.top = top;
+    if (obj->rect.left + offset >= (offset * 3) + reset)
+        obj->rect.left = reset;
     else
-        rect->left += offset;
+        obj->rect.left += offset;
+    sfClock_restart(obj->clock);
 }
 
 static void barry_run(game_object *obj, int height)
@@ -20,17 +22,12 @@ static void barry_run(game_object *obj, int height)
     sfTime time = sfClock_getElapsedTime(obj->clock);
 
     if (time.microseconds > 100000.0) {
-        if (height > 828) {
-            obj->rect.top = 0;
-            move_barry_rect(&obj->rect, 0, 59);
-            sfClock_restart(obj->clock);
-        }
-        // if (height <= 828) {
-        else {
-            obj->rect.top = 66;
-            move_barry_rect(&obj->rect, 59, 59);
-            sfClock_restart(obj->clock);
-        }
+        if (height > 828)
+            move_barry_rect(obj, 0, 0, 59);
+        else if (sfKeyboard_isKeyPressed(sfKeySpace))
+            move_barry_rect(obj, 66, 59, 59);
+        else
+            obj->rect.left = 0;
     }
     sfSprite_setTextureRect(obj->spr, obj->rect);
 }
@@ -38,16 +35,16 @@ static void barry_run(game_object *obj, int height)
 static void barry_jump(game_object *obj, int height)
 {
     if (sfKeyboard_isKeyPressed(sfKeySpace) && height > 150)//go up
-        obj->vec.y += -0.1;
+        obj->vec.y += -0.6;
     else if (height < 830)// go down
-        obj->vec.y += 0.1;
+        obj->vec.y += 0.6;
     if (height >= 150 && height <= 830)//entre les 2
         sfSprite_move(obj->spr, obj->vec);
-    else if (height < 150) {//over
+    else if (height < 150) {//over ceiling
         sfSprite_setPosition(obj->spr, (sfVector2f){500.0, 151.0});
         obj->vec.y = 0.0;
     }
-    else {
+    else if (sfKeyboard_isKeyPressed(sfKeySpace)){//under floor
         sfSprite_setPosition(obj->spr, (sfVector2f){500.0, 829.0});
         obj->vec.y = 0.0;
     }

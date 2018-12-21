@@ -26,20 +26,20 @@ void my_runner(void)
     sfEvent event;
     sfRenderWindow *window = create_my_window(1920, 1080, 32);
     game_object **obj_box = malloc(sizeof(game_object *) * 13);
-    sound_t **sound_box = malloc(sizeof(sound_t *) * 3);
+    sound_t **sound_box = malloc(sizeof(sound_t *) * 5);
     bool start_status = false;
+    // sfText score = sfText_create();
 
-    create_my_ressources(obj_box, sound_box);
+    create_my_ressources(window, obj_box, sound_box);
     while (sfRenderWindow_isOpen(window)) {
         draw_my_sprites(window, obj_box);
         sfRenderWindow_display(window);
-        //fonc start_quit
         if (!start_status)
             wait_for_start(&start_status, obj_box, sound_box);
         close_my_window(window, event);
-        //
         move_env(obj_box);
         move_barry(obj_box);
+        play_sounds(sound_box);
         sfRenderWindow_clear(window, sfBlack);
     }
     destroy_my_ressources(window, obj_box, sound_box);

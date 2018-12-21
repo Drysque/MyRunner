@@ -22,7 +22,8 @@ SRC	=	src/my_runner.c	\
 		src/close_my_window.c	\
 		src/init_my_ressources.c	\
 		src/move_barry.c	\
-		src/move_env.c
+		src/move_env.c	\
+		src/play_sounds.c
 
 MAIN	=	src/main.c
 

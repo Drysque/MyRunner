@@ -11,7 +11,7 @@ static void free_all(game_object **obj_box, sound_t **sound_box)
 {
     for (int i = 0; i < 13; i++)
         free(obj_box[i]);
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 5; i++)
         free(sound_box[i]);
     free(obj_box);
     free(sound_box);
@@ -49,5 +49,7 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
     destroy_music(sound_box[0]);
     destroy_music(sound_box[1]);
     destroy_music(sound_box[2]);
+    destroy_music(sound_box[3]);
+    destroy_music(sound_box[4]);
     free_all(obj_box, sound_box);
 }
