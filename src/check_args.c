@@ -18,15 +18,15 @@ static int my_strlen(char const *str)
     return (len);
 }
 
-static bool my_usage(int ac, char **av)
+static bool my_usage(void)
 {
-    char usage[] = "USAGE: \n\t./my_runner\n\n";
-    char description[] = "DESCRIPTION:\n\tPress SPACE to start\n";
+    char const usage[] = "USAGE: \n\t./my_runner\n\n";
+    char const description[] = "DESCRIPTION:\n\tPress SPACE to start\n";
     // char bird[] = "\tPress left click to hunt the birds\n";
     // char difficulty[] = "\tThe more you kill, the harder it gets!\n";
     // char failure[] = "\tIf you fail to kill one, you loose a life...\n";
-    char quit[] = "\tPress Escape to quit\n";
-    char fun[] = "\tHave fun!\n";
+    char const quit[] = "\tPress Escape to quit\n";
+    char const fun[] = "\tHave fun!\n";
 
     write(1, usage, my_strlen(usage));
     write(1, description, my_strlen(description));
@@ -40,9 +40,9 @@ static bool my_usage(int ac, char **av)
 
 static bool my_null_env(void)
 {
-    char error[] = "error\n";
-    char try[] = "Nice try, but the program can't be ";
-    char env[] = "used with an empty environment!\n";
+    char const error[] = "error\n";
+    char const try[] = "Nice try, but the program can't be ";
+    char const env[] = "used with an empty environment!\n";
 
     write(2, error, my_strlen(error));
     write(1, try, my_strlen(try));
@@ -54,7 +54,7 @@ bool check_args(int ac, char **av, char **env)
 {
     if (env[0] == NULL)
         return (my_null_env());
-    if (ac != 1)
-        return (my_usage(ac, av));
+    if (ac != 2 || (av[1][0] != '-' || av[1][1] != 'i'))
+        return (my_usage());
     return (true);
 }

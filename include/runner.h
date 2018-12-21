@@ -22,7 +22,12 @@
 4 - EmptySlide
 5 - Slide2
 6 - EmptySlide2
-7 - windows background
+7 - Space-Space
+8 - Earth-Space
+9 - Earth
+10 - Moon
+11 - Mars
+12 - Saturn
 */
 
 typedef struct game_object_s
@@ -31,6 +36,7 @@ typedef struct game_object_s
     sfSprite *spr;
     sfVector2f vec;
     sfIntRect rect;
+    sfClock *clock;
 } game_object;
 
 /*
@@ -44,6 +50,8 @@ typedef struct sound_s
     sfMusic *music;
 } sound_t;
 
+void move_env(game_object **obj_box);
+void move_barry(game_object **obj_box);
 void create_my_sounds(sound_t **sound_box);
 void create_my_sprites(game_object **obj_box);
 void init_my_ressources(game_object **obj_box);

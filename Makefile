@@ -21,6 +21,7 @@ SRC	=	src/my_runner.c	\
 		src/create_my_window.c	\
 		src/close_my_window.c	\
 		src/init_my_ressources.c	\
+		src/move_barry.c	\
 		src/move_env.c
 
 MAIN	=	src/main.c
@@ -41,6 +42,9 @@ all:	$(NAME)
 
 $(NAME):
 	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS)
+
+debug:	fclean
+	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS) -g3 -Wall -Wextra -Werror
 
 # tests_run: re
 # 	 $(CC) -o $(CRIT) $(SRC) $(TESTSRC) $(CRITFLAGS) $(CSFML) $(CFLAGS)

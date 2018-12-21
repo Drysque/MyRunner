@@ -9,7 +9,7 @@
 
 void create_my_ressources(game_object **obj_box, sound_t **sound_box)
 {
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 13; i++)
         obj_box[i] = malloc(sizeof(game_object));
     for (int i = 0; i < 3; i++)
         sound_box[i] = malloc(sizeof(sound_t));
