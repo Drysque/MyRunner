@@ -11,7 +11,7 @@ void create_my_ressources(sfRenderWindow *window, game_object **obj_box,
     sound_t **sound_box)
 {
     sfRenderWindow_setFramerateLimit(window, 60);
-    for (int i = 0; i < 13; i++)
+    for (int i = 0; i < 14; i++)
         obj_box[i] = malloc(sizeof(game_object));
     for (int i = 0; i < 5; i++)
         sound_box[i] = malloc(sizeof(sound_t));

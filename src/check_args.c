@@ -54,7 +54,7 @@ bool check_args(int ac, char **av, char **env)
 {
     if (env[0] == NULL)
         return (my_null_env());
-    if (ac != 2 || (av[1][0] != '-' || av[1][1] != 'i'))
+    if (ac != 2)
         return (my_usage());
     return (true);
 }

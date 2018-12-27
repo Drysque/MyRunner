@@ -8,6 +8,8 @@
 #ifndef RUNNER_H_
 #define RUNNER_H_
 
+#include <stdio.h>
+
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <stdlib.h>
@@ -16,7 +18,7 @@
 
 /*
 0 - LabEmpty
-1 - Barry
+1 - Barry SS
 2 - LabEntry (menu)
 3 - Slide
 4 - EmptySlide
@@ -28,6 +30,7 @@
 10 - Moon
 11 - Mars
 12 - Saturn
+13 - Missile SS
 */
 
 typedef struct game_object_s
@@ -53,14 +56,21 @@ typedef struct sound_s
 } sound_t;
 
 void move_env(game_object **obj_box);
-void play_sounds(sound_t **sound_box);
+char **read_me(char const *filepath);
 void move_barry(game_object **obj_box);
+void move_obstacles(game_object **obj_box);
 void create_my_sounds(sound_t **sound_box);
+char **my_str_to_line_array(char const *str);
 void create_my_sprites(game_object **obj_box);
 void init_my_ressources(game_object **obj_box);
+char **file_to_array(char const *str, char **array);
+void my_strncpy(char *dest, char const *src, int n);
 void close_my_window(sfRenderWindow *window, sfEvent event);
+void play_sounds(game_object **obj_box, sound_t **sound_box);
 sfRenderWindow *create_my_window(int width, int height, int bpp);
 void draw_my_sprites(sfRenderWindow *window, game_object **obj_box);
+bool spawn_obstacles(char **array_map, sfClock *game_clock,
+    game_object **obj_box, sound_t **sound_box);
 void create_my_ressources(sfRenderWindow *window, game_object **obj_box,
     sound_t **sound_box);
 void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,

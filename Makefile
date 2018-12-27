@@ -23,7 +23,14 @@ SRC	=	src/my_runner.c	\
 		src/init_my_ressources.c	\
 		src/move_barry.c	\
 		src/move_env.c	\
-		src/play_sounds.c
+		src/move_obstacles.c	\
+		src/spawn_obstacles.c \
+		src/play_sounds.c	\
+		lib/file_to_array.c	\
+		lib/my_str_to_line_array.c	\
+		lib/my_strlen.c	\
+		lib/my_strncpy.c	\
+		lib/read_me.c
 
 MAIN	=	src/main.c
 
@@ -45,7 +52,7 @@ $(NAME):
 	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS)
 
 debug:	fclean
-	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS) -g3 -Wall -Wextra -Werror
+	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS) -g3 -Wall -Wextra
 
 # tests_run: re
 # 	 $(CC) -o $(CRIT) $(SRC) $(TESTSRC) $(CRITFLAGS) $(CSFML) $(CFLAGS)

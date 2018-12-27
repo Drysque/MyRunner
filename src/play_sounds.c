@@ -7,7 +7,7 @@
 
 #include "runner.h"
 
-void play_sounds(sound_t **sound_box)
+void play_sounds(game_object **obj_box, sound_t **sound_box)
 {
     bool playing = sfMusic_getStatus(sound_box[3]->music) == sfPlaying;
 

@@ -29,4 +29,5 @@ void create_my_sprites(game_object **obj_box)
     create_env(obj_box[10], "./image_src/Moon.png");
     create_env(obj_box[11], "./image_src/Mars.png");
     create_env(obj_box[12], "./image_src/Saturn.png");
+    create_env(obj_box[13], "./image_src/MissileSheet.png");
 }
