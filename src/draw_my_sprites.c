@@ -35,6 +35,7 @@ void draw_my_sprites(sfRenderWindow *window, game_object **obj_box)
     sfRenderWindow_drawSprite(window, obj_box[1]->spr, NULL);//barry
     sfRenderWindow_drawSprite(window, obj_box[13]->spr, NULL);//missile
     sfRenderWindow_drawSprite(window, obj_box[14]->spr, NULL);//missile
+    sfRenderWindow_drawSprite(window, obj_box[15]->spr, NULL);//missile
     //
     // sprite_drawer(window, obj_box, "780234561");
 }

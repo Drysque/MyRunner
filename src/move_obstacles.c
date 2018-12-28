@@ -7,27 +7,6 @@
 
 #include "runner.h"
 
-static void move_obs_rect(game_object *obj, int reset, int offset)
-{
-
-    if (obj->rect.left + offset >= (offset * 3) + reset)
-        obj->rect.left = reset;
-    else
-        obj->rect.left += offset;
-    sfClock_restart(obj->clock);
-}
-
-static void move_missile(game_object *obj)
-{
-    sfTime time = sfClock_getElapsedTime(obj->clock);
-
-    if (time.microseconds > 100000.0) {
-        move_obs_rect(obj, 0, 45);
-    }
-    sfSprite_move(obj->spr, obj->vec);
-    sfSprite_setTextureRect(obj->spr, obj->rect);
-}
-
 static void move_warning(game_object **obj_box)
 {
     int width = sfSprite_getPosition(obj_box[13]->spr).x;
@@ -45,9 +24,12 @@ static void move_warning(game_object **obj_box)
 
 void move_obstacles(game_object **obj_box)
 {
-    int width = sfSprite_getPosition(obj_box[13]->spr).x;
+    int missile_width = sfSprite_getPosition(obj_box[13]->spr).x;
+    int laser_width = sfSprite_getPosition(obj_box[15]->spr).x;
 
-    if (width > -150)
+    if (missile_width > -150)
         move_missile(obj_box[13]);
+    if (laser_width > -2000)
+        move_laser(obj_box[15], laser_width);
     move_warning(obj_box);
 }

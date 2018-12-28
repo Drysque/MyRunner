@@ -23,6 +23,8 @@ SRC	=	src/my_runner.c	\
 		src/init_my_ressources.c	\
 		src/move_barry.c	\
 		src/move_env.c	\
+		src/move_laser.c	\
+		src/move_missile.c	\
 		src/move_obstacles.c	\
 		src/spawn_obstacles.c \
 		src/play_sounds.c	\

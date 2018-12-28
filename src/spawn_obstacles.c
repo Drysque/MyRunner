@@ -7,19 +7,8 @@
 
 #include "runner.h"
 
-/*
-    switch (true) {
-        case (val < 1000):
-            break;
-        case (val < 2000):
-            break;
-        case (val < 30000):
-            break;
-}
-*/
-
 static void random_spawn(game_object **obj_box, int line,
-    sfVector2f front_player)
+    sfVector2f front_player, sfVector2f indicated)
 {
     int random_gen = rand() % 10;
 
@@ -27,7 +16,8 @@ static void random_spawn(game_object **obj_box, int line,
         case 0: sfSprite_setPosition(obj_box[13]->spr, front_player);
             printf("%s\n", "MISSILE");
             break;
-        case 1: printf("%s\n", "LASER");
+        case 1: sfSprite_setPosition(obj_box[15]->spr, indicated);
+        printf("%s\n", "LASER");
             break;
         case 2: case 3: printf("%s\n", "ELEC");
             break;
@@ -39,6 +29,7 @@ static void random_spawn(game_object **obj_box, int line,
 static void summon_obs(char *obstacles, game_object **obj_box, int line)
 {
     sfVector2f front_player = {3200, sfSprite_getPosition(obj_box[1]->spr).y};
+    sfVector2f indicated = {2025, (line * 223) + 80};
 
     if (line > 3)
         return;
@@ -47,7 +38,9 @@ static void summon_obs(char *obstacles, game_object **obj_box, int line)
             break;
         case 'x': //sfSprite_setPosition(obj_box[elec], sfVector2f(1000, 200))
             break;
-        case 'i': random_spawn(obj_box, line, front_player);
+        case '=': sfSprite_setPosition(obj_box[15]->spr, indicated);
+            break;
+        case 'i': random_spawn(obj_box, line, front_player, indicated);
             break;
         default: break;
     }
@@ -80,7 +73,7 @@ bool spawn_obstacles(char **array_map, sfClock *game_clock,
 {
     sfInt64 elapsed = sfClock_getElapsedTime(game_clock).microseconds / 500000;
 
-    if (elapsed > 3)
+    if (elapsed > 6)
         return (set_obstacles(array_map, obj_box, game_clock));
     return true;
 }

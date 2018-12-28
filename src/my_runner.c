@@ -29,8 +29,8 @@ int my_runner(char **av)
 {
     sfEvent event;
     sfRenderWindow *window = create_my_window(1920, 1080, 32);
-    game_object **obj_box = malloc(sizeof(game_object *) * 15);
-    sound_t **sound_box = malloc(sizeof(sound_t *) * 7);
+    game_object **obj_box = malloc(sizeof(game_object *) * 16);
+    sound_t **sound_box = malloc(sizeof(sound_t *) * 10);
     sfClock *game_clock = sfClock_create();
     char **array_map = NULL;
     bool start_status = false;

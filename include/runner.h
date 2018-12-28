@@ -33,6 +33,7 @@
 12 - Saturn
 13 - Missile SS
 14 - Missile Warn
+15 - Laser SS
 */
 
 typedef struct game_object_s
@@ -52,6 +53,9 @@ typedef struct game_object_s
 4 - jet-off
 5 - missile-on
 6 - missile-warn
+7 - laser-warn
+8 - laser-start
+9 - laser-fire-stop
 */
 
 typedef struct sound_s
@@ -61,6 +65,8 @@ typedef struct sound_s
 
 int my_strlen(char const *str);
 
+void move_laser(game_object *obj, int width);
+void move_missile(game_object *obj);
 void move_env(game_object **obj_box);
 char **read_me(char const *filepath);
 void move_barry(game_object **obj_box);

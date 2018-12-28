@@ -20,6 +20,7 @@ void init_my_ressources(game_object **obj_box)
     //
     sfSprite_setScale(obj_box[13]->spr, (sfVector2f){3.0, 3.0});
     sfSprite_setScale(obj_box[14]->spr, (sfVector2f){2.5, 2.5});
+    sfSprite_setScale(obj_box[15]->spr, (sfVector2f){3.175, 3.175});
 
     sfSprite_setPosition(obj_box[1]->spr, (sfVector2f){2000.0, 2000.0});
     //for
@@ -35,24 +36,30 @@ void init_my_ressources(game_object **obj_box)
     sfSprite_setPosition(obj_box[12]->spr, (sfVector2f){800.0, 500.0});
     sfSprite_setPosition(obj_box[13]->spr, (sfVector2f){-2000.0, 0.0});
     sfSprite_setPosition(obj_box[14]->spr, (sfVector2f){-2000.0, 0.0});
+    sfSprite_setPosition(obj_box[15]->spr, (sfVector2f){-2000.0, 0.0});
+
+    obj_box[1]->vec = (sfVector2f){0.0, 0.0};
     //for
-    obj_box[0]->vec.x = -9.0;//hallway
-    obj_box[3]->vec.x = -9.0;
-    obj_box[4]->vec.x = -9.0;
-    obj_box[5]->vec.x = -9.0;
-    obj_box[6]->vec.x = -9.0;
+    obj_box[0]->vec = (sfVector2f){-9.0, 0.0};//hallway
+    obj_box[3]->vec = (sfVector2f){-9.0, 0.0};
+    obj_box[4]->vec = (sfVector2f){-9.0, 0.0};
+    obj_box[5]->vec = (sfVector2f){-9.0, 0.0};
+    obj_box[6]->vec = (sfVector2f){-9.0, 0.0};
 
-    obj_box[7]->vec.x = -3.0;//stars
-    obj_box[8]->vec.x = -3.0;
+    obj_box[7]->vec = (sfVector2f){-3.0, 0.0};//stars
+    obj_box[8]->vec = (sfVector2f){-3.0, 0.0};
 
-    obj_box[9]->vec.x = -6.0;//planets
-    obj_box[10]->vec.x = -7.5;
-    obj_box[11]->vec.x = -4.2;
-    obj_box[12]->vec.x = -3.6;
-    obj_box[13]->vec.x = -40.0;
-    // obj_box[1]->vec = (sfVector2f){0.0, 0.0};
-    obj_box[1]->clock = sfClock_create();
-    obj_box[13]->clock = sfClock_create();
+    obj_box[9]->vec = (sfVector2f){-6.0, 0.0};//planets
+    obj_box[10]->vec = (sfVector2f){-7.5, 0.0};
+    obj_box[11]->vec = (sfVector2f){-4.2, 0.0};
+    obj_box[12]->vec = (sfVector2f){-3.6, 0.0};
+    obj_box[13]->vec = (sfVector2f){-40.0, 0.0};
+    obj_box[15]->vec = (sfVector2f){-40.0, 0.0};
+
     obj_box[1]->rect = (sfIntRect){0, 0, 59, 66};
     obj_box[13]->rect = (sfIntRect){0, 0, 45, 29};
+    obj_box[15]->rect = (sfIntRect){0, 0, 608, 77};
+    obj_box[1]->clock = sfClock_create();
+    obj_box[13]->clock = sfClock_create();
+    obj_box[15]->clock = sfClock_create();
 }
