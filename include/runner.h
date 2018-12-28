@@ -15,6 +15,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <time.h>
 
 /*
 0 - LabEmpty
@@ -31,6 +32,7 @@
 11 - Mars
 12 - Saturn
 13 - Missile SS
+14 - Missile Warn
 */
 
 typedef struct game_object_s
@@ -48,12 +50,16 @@ typedef struct game_object_s
 2 - Smash
 3 - jet-on
 4 - jet-off
+5 - missile-on
+6 - missile-warn
 */
 
 typedef struct sound_s
 {
     sfMusic *music;
 } sound_t;
+
+int my_strlen(char const *str);
 
 void move_env(game_object **obj_box);
 char **read_me(char const *filepath);
@@ -70,7 +76,7 @@ void play_sounds(game_object **obj_box, sound_t **sound_box);
 sfRenderWindow *create_my_window(int width, int height, int bpp);
 void draw_my_sprites(sfRenderWindow *window, game_object **obj_box);
 bool spawn_obstacles(char **array_map, sfClock *game_clock,
-    game_object **obj_box, sound_t **sound_box);
+    game_object **obj_box);
 void create_my_ressources(sfRenderWindow *window, game_object **obj_box,
     sound_t **sound_box);
 void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,

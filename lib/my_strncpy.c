@@ -5,7 +5,7 @@
 ** Day06 task02 my_strncpy
 */
 
-int my_strlen(char const *src);
+int my_strlen(char const *str);
 
 static char *modify_dest(char *dest, char const *src, int n)
 {

@@ -7,21 +7,47 @@
 
 #include "runner.h"
 
-/*while arraymap pas fini, faire apparaitre les objets lus.
-'-i' = map avec 1 colonne de 'i'. Lecture = lit une colonne
-et passe à la suivante si char != i
-si colonne lu = i, aléatoire et ne pas apsser à la suivante
+/*
+    switch (true) {
+        case (val < 1000):
+            break;
+        case (val < 2000):
+            break;
+        case (val < 30000):
+            break;
+}
 */
+
+static void random_spawn(game_object **obj_box, int line,
+    sfVector2f front_player)
+{
+    int random_gen = rand() % 10;
+
+    switch (random_gen) {
+        case 0: sfSprite_setPosition(obj_box[13]->spr, front_player);
+            printf("%s\n", "MISSILE");
+            break;
+        case 1: printf("%s\n", "LASER");
+            break;
+        case 2: case 3: printf("%s\n", "ELEC");
+            break;
+        default: printf("%s\n", "NOTHING");
+            break;
+    }
+}
 
 static void summon_obs(char *obstacles, game_object **obj_box, int line)
 {
+    sfVector2f front_player = {3200, sfSprite_getPosition(obj_box[1]->spr).y};
+
     if (line > 3)
         return;
-    // printf("line:%d\\\n", line);
     switch (obstacles[line]) {
-        case '-': sfSprite_setPosition(obj_box[13]->spr, (sfVector2f){2000, (line + 1) * 200});
+        case '-': sfSprite_setPosition(obj_box[13]->spr, front_player);
             break;
         case 'x': //sfSprite_setPosition(obj_box[elec], sfVector2f(1000, 200))
+            break;
+        case 'i': random_spawn(obj_box, line, front_player);
             break;
         default: break;
     }
@@ -35,17 +61,13 @@ static bool set_obstacles(char **array_map, game_object **obj_box,
     static int current_slot = 0;
 
     //add score
-    if (array_map[0][current_slot] == '\0') {//reached end of map
-        printf("%s\n", "STOP");
+    if (array_map[0][current_slot] == '\0')
         return false;
-    }
-    printf("%d\n", current_slot);
-    for (int i = 0; i < 4; i++) {//read obs
+    for (int i = 0; i < 4; i++) {
         obstacles[i] = array_map[i][current_slot];
         printf("char:%c\\\n", array_map[i][current_slot]);
     }
-    // printf("time: %d\n", current_slot);
-    if (array_map[0][current_slot] != 'i') //if not infinite, move to next one
+    if (array_map[0][current_slot] != 'i')
         current_slot++;
     summon_obs(obstacles, obj_box, 0);
     sfClock_restart(game_clock);
@@ -54,12 +76,11 @@ static bool set_obstacles(char **array_map, game_object **obj_box,
 }
 
 bool spawn_obstacles(char **array_map, sfClock *game_clock,
-    game_object **obj_box, sound_t **sound_box)
+    game_object **obj_box)
 {
     sfInt64 elapsed = sfClock_getElapsedTime(game_clock).microseconds / 500000;
 
-    // if (elapsed > 3)
-    if (elapsed > 1)
+    if (elapsed > 3)
         return (set_obstacles(array_map, obj_box, game_clock));
     return true;
 }

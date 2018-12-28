@@ -26,14 +26,15 @@ static bool long_enough(char const *str)
     for (count; str && str[count]; count++);
     if (count < 2)
         return false;
-    printf("%s\n", "file long enough");
     return true;
 }
 
 static bool is_infinite(char const *str)
 {
-    if (str[0] == '-' && str[1] == 'i' && str[2] == '\0')
+    if (str[0] == '-' && str[1] == 'i' && str[2] == '\0') {
+        printf("%s\n", "infinite");
         return true;
+    }
     printf("%s\n", "not infinite");
     return false;
 }

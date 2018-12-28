@@ -9,33 +9,57 @@
 #include <unistd.h>
 #include "runner.h"
 
-static int my_strlen(char const *str)
+static bool my_exemple(void)
 {
-    int len = 0;
+    char const exemple[] = "EXEMPLES:\nShort map with \\s to indicate the end \
+of the game:\n x    -   \\\n          \\\n    =     \\\n          \\\n\
+Standard long map:\n-   =        x x   x =\n  x  -    x   =    x  \n    \
+x       -- =  x   \n x     -    ==       -\n";
 
-    for (int i = 0; str[i]; i++)
-        len++;
-    return (len);
+    write(1, exemple, my_strlen(exemple));
+    return false;
+}
+
+static bool my_obs(void)
+{
+    char const obs[] = "How to build a map? Good Question.\n\n\tFirst, you \
+must create a readable file with 4 lines.\n\tThe first line will contain the \
+obstacles for the ceiling, the second and third one for the middle of the \
+screen and the fourth one for the ground.\n\nThere are different types of \
+obstacles:\n\ta \'-\' will summon a homing missile. It will target the player \
+no matter where you place it.\n\ta \'=\' will summon a laser that charges and \
+shoots after a period of time.\n\ta \'x\' will summon a electrical field that \
+doesn't move.\nA blank space is used to separate obstacles.\nAny collision \
+with these obstacles will lead to death.\nThe game is considered finished when \
+the game reaches the end of a line.\nIf you have trouble getting the length of \
+each lines to match because of trailing spaces being deleted when a file is \
+saved, you can use a \'\\\' at the end of the lines.\n\nIf the file contains \
+any other character, the map is considered false and the game won't launch.\n\
+If the file has more than 4 lines, the map is considered false and the game \
+won't launch.\nIf the lines are of different length, the map is considered \
+false and the game won't launch.\n\nRelaunch with -e for exemples.\n";
+
+    write(1, obs, my_strlen(obs));
+    return false;
 }
 
 static bool my_usage(void)
 {
-    char const usage[] = "USAGE: \n\t./my_runner\n\n";
-    char const description[] = "DESCRIPTION:\n\tPress SPACE to start\n";
-    // char bird[] = "\tPress left click to hunt the birds\n";
-    // char difficulty[] = "\tThe more you kill, the harder it gets!\n";
-    // char failure[] = "\tIf you fail to kill one, you loose a life...\n";
-    char const quit[] = "\tPress Escape to quit\n";
-    char const fun[] = "\tHave fun!\n";
+    char const usage[] = "USAGE: \n\t\
+./my_runner <file>\n\t\tlaunches the game with the given map\n\t\
+./my_runner -i\n\t\tlaunches the game in infinite mode with random obstacles\n\t\
+./my_runner -h\n\t\tdisplays this message and quits\n\t\
+./my_runner -m\n\t\tdisplays a message to help you build your map and quits\n\t\
+./my_runner -e\n\t\tdisplays an exemple of a map and quits\n\
+\nDESCRIPTION:\n\
+\tMy_runner is a finite running game\n\
+\tBuild your own map with obstacles\n\
+\tPress SPACE to play\n\
+\tPress Escape to quit\n\
+\tHave fun!\n";
 
     write(1, usage, my_strlen(usage));
-    write(1, description, my_strlen(description));
-    // write(1, bird, my_strlen(bird));
-    // write(1, difficulty, my_strlen(difficulty));
-    // write(1, failure, my_strlen(failure));
-    write(1, quit, my_strlen(quit));
-    write(1, fun, my_strlen(fun));
-    return (false);
+    return false;
 }
 
 static bool my_null_env(void)
@@ -47,14 +71,18 @@ static bool my_null_env(void)
     write(2, error, my_strlen(error));
     write(1, try, my_strlen(try));
     write(1, env, my_strlen(env));
-    return (false);
+    return false;
 }
 
 bool check_args(int ac, char **av, char **env)
 {
     if (env[0] == NULL)
-        return (my_null_env());
-    if (ac != 2)
-        return (my_usage());
-    return (true);
+        return my_null_env();
+    if (ac != 2 || (av[1][0] == '-' && av[1][1] == 'h' && av[1][2] == '\0'))
+        return my_usage();
+    if (av[1][0] == '-' && av[1][1] == 'm' && av[1][2] == '\0')
+        return my_obs();
+    if (av[1][0] == '-' && av[1][1] == 'e' && av[1][2] == '\0')
+        return my_exemple();
+    return true;
 }

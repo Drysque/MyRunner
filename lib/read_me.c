@@ -11,10 +11,8 @@
 
 static bool wrong_char(char c)
 {
-    if (c != 'x' && c != '-' && c != ' ' && c != '\n' && c != 'S') {
-        printf("wrong char: %c\n", c);
+    if (c != 'x' && c != '-' && c != ' ' && c != '\n' && c != '=' && c != '\\')
         return true;
-    }
     return false;
 }
 
@@ -32,7 +30,7 @@ static int get_file_size(char const *file)
     struct stat sb;
 
     lstat(file, &sb);
-    printf("%s%d\n", "file size: ", sb.st_size);
+    printf("%s%ld\n", "file size: ", sb.st_size);
     return (sb.st_size);
 }
 

@@ -17,7 +17,7 @@ static void move_obs_rect(game_object *obj, int reset, int offset)
     sfClock_restart(obj->clock);
 }
 
-static void missile_move(game_object *obj)
+static void move_missile(game_object *obj)
 {
     sfTime time = sfClock_getElapsedTime(obj->clock);
 
@@ -28,10 +28,26 @@ static void missile_move(game_object *obj)
     sfSprite_setTextureRect(obj->spr, obj->rect);
 }
 
+static void move_warning(game_object **obj_box)
+{
+    int width = sfSprite_getPosition(obj_box[13]->spr).x;
+    int height = sfSprite_getPosition(obj_box[1]->spr).y;
+    sfVector2f warn_player = {1800, height};
+    sfVector2f front_player = {width, height};
+
+    if (width > 2000) {
+        sfSprite_setPosition(obj_box[13]->spr, front_player);
+        sfSprite_setPosition(obj_box[14]->spr, warn_player);
+    }
+    else
+        sfSprite_setPosition(obj_box[14]->spr, (sfVector2f){2000, 2000});
+}
+
 void move_obstacles(game_object **obj_box)
 {
     int width = sfSprite_getPosition(obj_box[13]->spr).x;
 
-    if (width > 150)
-        missile_move(obj_box[13]);
+    if (width > -150)
+        move_missile(obj_box[13]);
+    move_warning(obj_box);
 }

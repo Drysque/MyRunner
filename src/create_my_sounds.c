@@ -19,9 +19,11 @@ void create_my_sounds(sound_t **sound_box)
     create_music(sound_box[2], "./sound_src/smash.wav");
     create_music(sound_box[3], "./sound_src/jet_on.wav");
     create_music(sound_box[4], "./sound_src/jet_off.wav");
+    create_music(sound_box[5], "./sound_src/missile_on.wav");
+    create_music(sound_box[6], "./sound_src/missile_warning.wav");
     sfMusic_setVolume(sound_box[0]->music, 35.0);
     sfMusic_setVolume(sound_box[1]->music, 35.0);
     sfMusic_setVolume(sound_box[2]->music, 35.0);
-    sfMusic_setVolume(sound_box[3]->music, 100.0);
-    sfMusic_setVolume(sound_box[4]->music, 100.0);
+    // sfMusic_setVolume(sound_box[3]->music, 100.0);
+    // sfMusic_setVolume(sound_box[4]->music, 100.0);
 }
