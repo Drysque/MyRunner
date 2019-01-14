@@ -47,7 +47,7 @@ static bool my_usage(void)
 {
     char const usage[] = "USAGE: \n\t\
 ./my_runner <file>\n\t\tlaunches the game with the given map\n\t\
-./my_runner -i\n\t\tlaunches the game in infinite mode with random obstacles\n\t\
+./my_runner -i\n\t\tlaunches the game in infinite mode and random obstacles\n\t\
 ./my_runner -h\n\t\tdisplays this message and quits\n\t\
 ./my_runner -m\n\t\tdisplays a message to help you build your map and quits\n\t\
 ./my_runner -e\n\t\tdisplays an exemple of a map and quits\n\
@@ -56,7 +56,11 @@ static bool my_usage(void)
 \tBuild your own map with obstacles\n\
 \tPress SPACE to play\n\
 \tPress Escape to quit\n\
-\tHave fun!\n";
+\tHave fun!\n\
+\nRETURN VALUES:\n\
+\t0: Player left the game with escape\n\
+\t1: Player died\n\
+\t2: Victory\n";
 
     write(1, usage, my_strlen(usage));
     return false;

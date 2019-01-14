@@ -7,14 +7,16 @@
 
 #include "runner.h"
 
-static void free_all(game_object **obj_box, sound_t **sound_box)
+static void free_all(game_object **obj_box, sound_t **sound_box,
+    score_t *score)
 {
-    for (int i = 0; i < 16; i++)
+    for (int i = 0; i < 17; i++)
         free(obj_box[i]);
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 11; i++)
         free(sound_box[i]);
     free(obj_box);
     free(sound_box);
+    free(score);
 }
 
 static void destroy_env(game_object *obj)
@@ -30,7 +32,7 @@ static void destroy_music(sound_t *sound)
 }
 
 void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
-    sound_t **sound_box)
+    sound_t **sound_box, score_t *score)
 {
     sfRenderWindow_destroy(window);
     destroy_env(obj_box[0]);
@@ -49,6 +51,7 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
     destroy_env(obj_box[13]);
     destroy_env(obj_box[14]);
     destroy_env(obj_box[15]);
+    destroy_env(obj_box[16]);
     destroy_music(sound_box[0]);
     destroy_music(sound_box[1]);
     destroy_music(sound_box[2]);
@@ -59,5 +62,6 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
     destroy_music(sound_box[7]);
     destroy_music(sound_box[8]);
     destroy_music(sound_box[9]);
-    free_all(obj_box, sound_box);
+    destroy_music(sound_box[10]);
+    free_all(obj_box, sound_box, score);
 }

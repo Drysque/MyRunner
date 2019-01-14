@@ -7,7 +7,7 @@
 
 #include "runner.h"
 
-static int get_lines(char const *str)
+int get_lines(char const *str)
 {
     int count = 0;
 

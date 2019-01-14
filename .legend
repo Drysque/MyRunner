@@ -1,0 +1,4 @@
+a '-' will summon a homing missile. It will target the player no matter where you place it.
+a '=' will summon a laser that charges and shoots after a period of time.
+a 'x' will summon a electrical field that doesn't move.
+A blank space is used to separate obstacles.

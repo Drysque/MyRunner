@@ -26,10 +26,13 @@ void move_obstacles(game_object **obj_box)
 {
     int missile_width = sfSprite_getPosition(obj_box[13]->spr).x;
     int laser_width = sfSprite_getPosition(obj_box[15]->spr).x;
+    int zapper_width = sfSprite_getPosition(obj_box[16]->spr).x;
 
     if (missile_width > -150)
         move_missile(obj_box[13]);
     if (laser_width > -2000)
         move_laser(obj_box[15], laser_width);
+    if (zapper_width > -400)
+        move_zapper(obj_box[16]);
     move_warning(obj_box);
 }

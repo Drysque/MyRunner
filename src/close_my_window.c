@@ -7,8 +7,10 @@
 
 #include "runner.h"
 
-void close_my_window(sfRenderWindow *window, sfEvent event)
+void close_my_window(sfRenderWindow *window)
 {
+    sfEvent event;
+
     while (sfRenderWindow_pollEvent(window, &event))
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);

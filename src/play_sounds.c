@@ -50,9 +50,19 @@ static void play_laser(game_object **obj_box, sound_t **sound_box)
     }
 }
 
+static void play_zapper(game_object **obj_box, sound_t **sound_box)
+{
+    int width = sfSprite_getPosition(obj_box[16]->spr).x;
+    bool playing = sfMusic_getStatus(sound_box[10]->music) == sfPlaying;
+
+    if (width > -50 && width < 1920 && !playing)
+        sfMusic_play(sound_box[10]->music);
+}
+
 void play_sounds(game_object **obj_box, sound_t **sound_box)
 {
     play_jetpack(sound_box);
     play_missile(obj_box, sound_box);
     play_laser(obj_box, sound_box);
+    play_zapper(obj_box, sound_box);
 }

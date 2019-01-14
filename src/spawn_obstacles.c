@@ -7,8 +7,8 @@
 
 #include "runner.h"
 
-static void random_spawn(game_object **obj_box, int line,
-    sfVector2f front_player, sfVector2f indicated)
+static void random_spawn(game_object **obj_box, sfVector2f front_player,
+    sfVector2f ind_laser, sfVector2f ind_zapper)
 {
     int random_gen = rand() % 10;
 
@@ -16,10 +16,10 @@ static void random_spawn(game_object **obj_box, int line,
         case 0: sfSprite_setPosition(obj_box[13]->spr, front_player);
             printf("%s\n", "MISSILE");
             break;
-        case 1: sfSprite_setPosition(obj_box[15]->spr, indicated);
+        case 1: sfSprite_setPosition(obj_box[15]->spr, ind_laser);
         printf("%s\n", "LASER");
             break;
-        case 2: case 3: printf("%s\n", "ELEC");
+        case 2: case 3: sfSprite_setPosition(obj_box[16]->spr, ind_zapper);
             break;
         default: printf("%s\n", "NOTHING");
             break;
@@ -29,25 +29,26 @@ static void random_spawn(game_object **obj_box, int line,
 static void summon_obs(char *obstacles, game_object **obj_box, int line)
 {
     sfVector2f front_player = {3200, sfSprite_getPosition(obj_box[1]->spr).y};
-    sfVector2f indicated = {2025, (line * 223) + 80};
+    sfVector2f ind_laser = {2025, (line * 223) + 80};
+    sfVector2f ind_zapper = {1920, (line * 217) + 150};
 
     if (line > 3)
         return;
     switch (obstacles[line]) {
         case '-': sfSprite_setPosition(obj_box[13]->spr, front_player);
             break;
-        case 'x': //sfSprite_setPosition(obj_box[elec], sfVector2f(1000, 200))
+        case 'x': sfSprite_setPosition(obj_box[16]->spr, ind_zapper);
             break;
-        case '=': sfSprite_setPosition(obj_box[15]->spr, indicated);
+        case '=': sfSprite_setPosition(obj_box[15]->spr, ind_laser);
             break;
-        case 'i': random_spawn(obj_box, line, front_player, indicated);
+        case 'i': random_spawn(obj_box, front_player, ind_laser, ind_zapper);
             break;
         default: break;
     }
     summon_obs(obstacles, obj_box, ++line);
 }
 
-static bool set_obstacles(char **array_map, game_object **obj_box,
+static int set_obstacles(char **array_map, game_object **obj_box,
     sfClock *game_clock)
 {
     char *obstacles = malloc(sizeof(char) * 4);
@@ -55,25 +56,23 @@ static bool set_obstacles(char **array_map, game_object **obj_box,
 
     //add score
     if (array_map[0][current_slot] == '\0')
-        return false;
-    for (int i = 0; i < 4; i++) {
+        return 2;
+    for (int i = 0; i < 4; i++)
         obstacles[i] = array_map[i][current_slot];
-        printf("char:%c\\\n", array_map[i][current_slot]);
-    }
     if (array_map[0][current_slot] != 'i')
         current_slot++;
     summon_obs(obstacles, obj_box, 0);
     sfClock_restart(game_clock);
     free(obstacles);
-    return true;
+    return 0;
 }
 
-bool spawn_obstacles(char **array_map, sfClock *game_clock,
+int spawn_obstacles(char **array_map, sfClock *game_clock,
     game_object **obj_box)
 {
     sfInt64 elapsed = sfClock_getElapsedTime(game_clock).microseconds / 500000;
 
-    if (elapsed > 6)
+    if (elapsed > 8)
         return (set_obstacles(array_map, obj_box, game_clock));
-    return true;
+    return 0;
 }

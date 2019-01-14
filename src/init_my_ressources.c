@@ -21,6 +21,7 @@ void init_my_ressources(game_object **obj_box)
     sfSprite_setScale(obj_box[13]->spr, (sfVector2f){3.0, 3.0});
     sfSprite_setScale(obj_box[14]->spr, (sfVector2f){2.5, 2.5});
     sfSprite_setScale(obj_box[15]->spr, (sfVector2f){3.175, 3.175});
+    sfSprite_setScale(obj_box[16]->spr, (sfVector2f){3.175, 3.175});
 
     sfSprite_setPosition(obj_box[1]->spr, (sfVector2f){2000.0, 2000.0});
     //for
@@ -37,6 +38,7 @@ void init_my_ressources(game_object **obj_box)
     sfSprite_setPosition(obj_box[13]->spr, (sfVector2f){-2000.0, 0.0});
     sfSprite_setPosition(obj_box[14]->spr, (sfVector2f){-2000.0, 0.0});
     sfSprite_setPosition(obj_box[15]->spr, (sfVector2f){-2000.0, 0.0});
+    sfSprite_setPosition(obj_box[16]->spr, (sfVector2f){-2000.0, 0.0});
 
     obj_box[1]->vec = (sfVector2f){0.0, 0.0};
     //for
@@ -55,11 +57,14 @@ void init_my_ressources(game_object **obj_box)
     obj_box[12]->vec = (sfVector2f){-3.6, 0.0};
     obj_box[13]->vec = (sfVector2f){-40.0, 0.0};
     obj_box[15]->vec = (sfVector2f){-40.0, 0.0};
+    obj_box[16]->vec = (sfVector2f){-9.0, 0.0};
 
     obj_box[1]->rect = (sfIntRect){0, 0, 59, 66};
     obj_box[13]->rect = (sfIntRect){0, 0, 45, 29};
     obj_box[15]->rect = (sfIntRect){0, 0, 608, 77};
+    obj_box[16]->rect = (sfIntRect){0, 0, 188, 48};
     obj_box[1]->clock = sfClock_create();
     obj_box[13]->clock = sfClock_create();
     obj_box[15]->clock = sfClock_create();
+    obj_box[16]->clock = sfClock_create();
 }

@@ -34,6 +34,7 @@
 13 - Missile SS
 14 - Missile Warn
 15 - Laser SS
+16 - Zapper SS
 */
 
 typedef struct game_object_s
@@ -56,6 +57,11 @@ typedef struct game_object_s
 7 - laser-warn
 8 - laser-start
 9 - laser-fire-stop
+10 - zapper-fire
+
+11 - missile-death
+12 - laser-death
+13 - zapper - death
 */
 
 typedef struct sound_s
@@ -63,29 +69,42 @@ typedef struct sound_s
     sfMusic *music;
 } sound_t;
 
-int my_strlen(char const *str);
+typedef struct score_s
+{
+    long unsigned int score_number;//static int
+    sfFont *font;
+    sfText *score_str;//display of score
+    sfText *score_disp;//"score: "
+} score_t;
 
-void move_laser(game_object *obj, int width);
+int my_strlen(char const *str);
+int get_lines(char const *str);
+char **read_me(char const *filepath);
+char **my_str_to_line_array(char const *str);
+char **file_to_array(char const *str, char **array);
+void my_strncpy(char *dest, char const *src, int n);
+
+void move_zapper(game_object *obj);
+void init_my_score(score_t *score);
 void move_missile(game_object *obj);
 void move_env(game_object **obj_box);
-char **read_me(char const *filepath);
 void move_barry(game_object **obj_box);
 void move_obstacles(game_object **obj_box);
 void create_my_sounds(sound_t **sound_box);
-char **my_str_to_line_array(char const *str);
+void close_my_window(sfRenderWindow *window);
+void move_laser(game_object *obj, int width);
 void create_my_sprites(game_object **obj_box);
 void init_my_ressources(game_object **obj_box);
-char **file_to_array(char const *str, char **array);
-void my_strncpy(char *dest, char const *src, int n);
-void close_my_window(sfRenderWindow *window, sfEvent event);
+int check_death(int go_on, game_object **obj_box);
+void update_score(game_object **obj_box, score_t *score);
 void play_sounds(game_object **obj_box, sound_t **sound_box);
 sfRenderWindow *create_my_window(int width, int height, int bpp);
 void draw_my_sprites(sfRenderWindow *window, game_object **obj_box);
-bool spawn_obstacles(char **array_map, sfClock *game_clock,
+int spawn_obstacles(char **array_map, sfClock *game_clock,
     game_object **obj_box);
 void create_my_ressources(sfRenderWindow *window, game_object **obj_box,
-    sound_t **sound_box);
+    sound_t **sound_box, score_t *score);
 void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
-    sound_t **sounds);
+    sound_t **sound_box, score_t *score);
 
 #endif

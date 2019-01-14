@@ -21,6 +21,8 @@ static bool check_file_quality(char const *str)
     for (int i = 0; str && str[i]; i++)
         if (wrong_char(str[i]))
             return false;
+    if (get_lines(str) != 4)
+        return false;
     printf("%s\n", "good file");
     return true;
 }
@@ -56,7 +58,7 @@ char **read_me(char const *filepath)
     else if ((read(fd, buffer, size)) == -1)
         return (my_error("Could not read file\n", 20, fd));
     else if (!check_file_quality(buffer))
-        return (my_error("The map can only be composed of obstacles\n", 42, fd));
+        return (my_error("Invalid map\n", 12, fd));
     else {
         close(fd);
         printf("%s\n", "file closed. everything good. transforming into array...");
