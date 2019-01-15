@@ -27,7 +27,7 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
         destroy_env(obj_box[i]);
         free(obj_box[i]);
     }
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 14; i++) {
         destroy_music(sound_box[i]);
         free(sound_box[i]);
     }

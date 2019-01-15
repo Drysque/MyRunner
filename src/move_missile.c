@@ -9,8 +9,8 @@
 
 static void move_missile_rect(game_object *obj, int reset, int offset)
 {
-
-    if (obj->rect.left + offset >= (offset * 3) + reset)
+    if (obj->rect.left == 135);
+    else if (obj->rect.left == 90)
         obj->rect.left = reset;
     else
         obj->rect.left += offset;

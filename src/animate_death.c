@@ -80,6 +80,7 @@ void animate_death(sfRenderWindow *window, game_object **obj_box,
         after_death_env(obj_box[4], -740, move);
         after_death_env(obj_box[5], -740, move);
         after_death_env(obj_box[6], -740, move);
+        after_death_env(obj_box[13], -740, move);
         after_death_env(obj_box[16], -740, move);
         draw_my_sprites(window, obj_box);
         sfRenderWindow_display(window);

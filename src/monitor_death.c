@@ -29,7 +29,7 @@ static void animate_victory(sfRenderWindow *window, game_object **obj_box,
 void monitor_death(sfRenderWindow *window, int *go_on,
     game_object **obj_box, sound_t **sound_box)
 {
-    *go_on = check_death(*go_on, obj_box);
+    *go_on = check_death(*go_on, obj_box, sound_box);
     if (*go_on == 1)
         animate_death(window, obj_box, sound_box);
     if (*go_on == 3)

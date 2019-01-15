@@ -50,7 +50,7 @@ int my_runner(char **av)
 {
     sfRenderWindow *window = create_my_window(1920, 1080, 32);
     game_object **obj_box = malloc(sizeof(game_object *) * 18);
-    sound_t **sound_box = malloc(sizeof(sound_t *) * 11);
+    sound_t **sound_box = malloc(sizeof(sound_t *) * 14);
     score_t *score = malloc(sizeof(score_t));
     sfClock *game_clock = sfClock_create();
     char **array_map = file_to_array(av[1], array_map);

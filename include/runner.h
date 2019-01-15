@@ -8,8 +8,6 @@
 #ifndef RUNNER_H_
 #define RUNNER_H_
 
-#include <stdio.h>
-
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <stdlib.h>
@@ -59,7 +57,6 @@ typedef struct game_object_s
 8 - laser-start
 9 - laser-fire-stop
 10 - zapper-fire
-
 11 - missile-death
 12 - laser-death
 13 - zapper - death
@@ -74,7 +71,7 @@ typedef struct score_s
 {
     long unsigned int score_number;
     sfFont *font;
-    sfText *score_str;//display of score
+    sfText *score_str;
 } score_t;
 
 int my_strlen(char const *str);
@@ -96,12 +93,12 @@ void close_my_window(sfRenderWindow *window);
 void move_laser(game_object *obj, int width);
 void create_my_sprites(game_object **obj_box);
 void init_my_ressources(game_object **obj_box);
-int check_death(int go_on, game_object **obj_box);
 void update_score(game_object **obj_box, score_t *score);
 void init_my_score(sfRenderWindow *window, score_t *score);
 void play_sounds(game_object **obj_box, sound_t **sound_box);
 sfRenderWindow *create_my_window(int width, int height, int bpp);
 void draw_my_sprites(sfRenderWindow *window, game_object **obj_box);
+int check_death(int go_on, game_object **obj_box, sound_t **sound_box);
 void monitor_death(sfRenderWindow *window, int *go_on,
     game_object **obj_box, sound_t **sound_box);
 int spawn_obstacles(char **array_map, sfClock *game_clock,

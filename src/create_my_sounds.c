@@ -25,7 +25,12 @@ void create_my_sounds(sound_t **sound_box)
     create_music(sound_box[8], "./sound_src/laser_start.wav");
     create_music(sound_box[9], "./sound_src/laser_fire.ogg");
     create_music(sound_box[10], "./sound_src/zapper_fire.wav");
+    create_music(sound_box[11], "./sound_src/missile_death.wav");
+    create_music(sound_box[12], "./sound_src/laser_death.wav");
+    create_music(sound_box[13], "./sound_src/zapper_death.wav");
     sfMusic_setVolume(sound_box[0]->music, 35.0);
     sfMusic_setVolume(sound_box[1]->music, 35.0);
     sfMusic_setVolume(sound_box[2]->music, 35.0);
+    sfMusic_setVolume(sound_box[10]->music, 50.0);
+    sfMusic_setVolume(sound_box[13]->music, 100.0);
 }
