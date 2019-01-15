@@ -16,17 +16,17 @@ static void sprite_drawer(sfRenderWindow *window, game_object **obj_box,
 
 void draw_my_sprites(sfRenderWindow *window, game_object **obj_box)
 {
-    sfRenderWindow_drawSprite(window, obj_box[7]->spr, NULL);//stars
+    sfRenderWindow_drawSprite(window, obj_box[7]->spr, NULL);
     sfRenderWindow_drawSprite(window, obj_box[8]->spr, NULL);
-    sfRenderWindow_drawSprite(window, obj_box[12]->spr, NULL);//planets
+    sfRenderWindow_drawSprite(window, obj_box[12]->spr, NULL);
     sfRenderWindow_drawSprite(window, obj_box[11]->spr, NULL);
     sfRenderWindow_drawSprite(window, obj_box[9]->spr, NULL);
     sfRenderWindow_drawSprite(window, obj_box[10]->spr, NULL);
     sprite_drawer(window, obj_box, "023456");
-    sfRenderWindow_drawSprite(window, obj_box[1]->spr, NULL);//barry
-    sfRenderWindow_drawSprite(window, obj_box[13]->spr, NULL);//missile
-    sfRenderWindow_drawSprite(window, obj_box[14]->spr, NULL);//missile warn
-    sfRenderWindow_drawSprite(window, obj_box[15]->spr, NULL);//laser
-    sfRenderWindow_drawSprite(window, obj_box[16]->spr, NULL);//zapper
-    sfRenderWindow_drawSprite(window, obj_box[17]->spr, NULL);//GO
+    sfRenderWindow_drawSprite(window, obj_box[1]->spr, NULL);
+    sfRenderWindow_drawSprite(window, obj_box[13]->spr, NULL);
+    sfRenderWindow_drawSprite(window, obj_box[14]->spr, NULL);
+    sfRenderWindow_drawSprite(window, obj_box[15]->spr, NULL);
+    sfRenderWindow_drawSprite(window, obj_box[16]->spr, NULL);
+    sfRenderWindow_drawSprite(window, obj_box[17]->spr, NULL);
 }
