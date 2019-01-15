@@ -31,11 +31,8 @@ static bool long_enough(char const *str)
 
 static bool is_infinite(char const *str)
 {
-    if (str[0] == '-' && str[1] == 'i' && str[2] == '\0') {
-        printf("%s\n", "infinite");
+    if (str[0] == '-' && str[1] == 'i' && str[2] == '\0')
         return true;
-    }
-    printf("%s\n", "not infinite");
     return false;
 }
 

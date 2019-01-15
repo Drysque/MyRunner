@@ -22,7 +22,6 @@ static bool check_file_quality(char const *str)
         if (wrong_char(str[i]))
             return false;
     if (get_lines(str) != 4)
-    printf("%s\n", "good file");
     return true;
 }
 
@@ -31,7 +30,6 @@ static int get_file_size(char const *file)
     struct stat sb;
 
     lstat(file, &sb);
-    printf("%s%ld\n", "file size: ", sb.st_size);
     return (sb.st_size);
 }
 
@@ -60,7 +58,6 @@ char **read_me(char const *filepath)
         return (my_error("Invalid map\n", 12, fd));
     else {
         close(fd);
-        printf("%s\n", "file closed. everything good. transforming into array...");
         return (my_str_to_line_array(buffer));
     }
 }
