@@ -72,21 +72,21 @@ typedef struct sound_s
 
 typedef struct score_s
 {
-    long unsigned int score_number;//static int
+    long unsigned int score_number;
     sfFont *font;
     sfText *score_str;//display of score
-    sfText *score_disp;//"score: "
 } score_t;
 
 int my_strlen(char const *str);
 int get_lines(char const *str);
+char *my_itoa(int nbr, int neg);
 char **read_me(char const *filepath);
+char *my_strcat(char *buffer, char *str);
 char **my_str_to_line_array(char const *str);
 char **file_to_array(char const *str, char **array);
 void my_strncpy(char *dest, char const *src, int n);
 
 void move_zapper(game_object *obj);
-void init_my_score(score_t *score);
 void move_missile(game_object *obj);
 void move_env(game_object **obj_box);
 void move_barry(game_object **obj_box);
@@ -98,15 +98,16 @@ void create_my_sprites(game_object **obj_box);
 void init_my_ressources(game_object **obj_box);
 int check_death(int go_on, game_object **obj_box);
 void update_score(game_object **obj_box, score_t *score);
+void init_my_score(sfRenderWindow *window, score_t *score);
 void play_sounds(game_object **obj_box, sound_t **sound_box);
 sfRenderWindow *create_my_window(int width, int height, int bpp);
 void draw_my_sprites(sfRenderWindow *window, game_object **obj_box);
 void monitor_death(sfRenderWindow *window, int *go_on,
     game_object **obj_box, sound_t **sound_box);
-void animate_death(sfRenderWindow *window, game_object **obj_box,
-    sound_t **sound_box);
 int spawn_obstacles(char **array_map, sfClock *game_clock,
     game_object **obj_box);
+void animate_death(sfRenderWindow *window, game_object **obj_box,
+    sound_t **sound_box);
 void create_my_ressources(sfRenderWindow *window, game_object **obj_box,
     sound_t **sound_box, score_t *score);
 void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,

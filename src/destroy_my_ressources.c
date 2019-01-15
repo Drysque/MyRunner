@@ -33,5 +33,7 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
     }
     free(obj_box);
     free(sound_box);
+    sfText_destroy(score->score_str);
+    sfFont_destroy(score->font);
     free(score);
 }

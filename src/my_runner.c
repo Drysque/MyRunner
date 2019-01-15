@@ -37,6 +37,7 @@ static void animate_screen(game_object **obj_box, sound_t **sound_box,
     sfRenderWindow *window, score_t *score)
 {
     draw_my_sprites(window, obj_box);
+    sfRenderWindow_drawText(window, score->score_str, NULL);
     sfRenderWindow_display(window);
     move_env(obj_box);
     move_barry(obj_box);

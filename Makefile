@@ -35,7 +35,9 @@ SRC	=	src/my_runner.c				\
 		src/spawn_obstacles.c 		\
 		src/update_score.c			\
 		lib/file_to_array.c			\
+		lib/my_itoa.c				\
 		lib/my_str_to_line_array.c	\
+		lib/my_strcat.c				\
 		lib/my_strlen.c				\
 		lib/my_strncpy.c			\
 		lib/read_me.c

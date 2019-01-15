@@ -9,5 +9,7 @@
 
 void update_score(game_object **obj_box, score_t *score)
 {
-    score->score_number += 1;
+    score->score_number -= obj_box[3]->vec.x;
+    sfText_setString(score->score_str, my_strcat("Score: ",
+        my_itoa(score->score_number / 100, 0)));
 }
