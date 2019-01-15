@@ -23,16 +23,13 @@ void move_laser(game_object *obj, int width)
     if (width > 40 || width < 0) {
         sfSprite_move(obj->spr, obj->vec);
         move_laser_rect(obj, 0, 0, 1);
-        // printf("%s\n", "out of screen");
     }
     else if (width > 5) {
-        // printf("%s\n", "charging");
         sfSprite_move(obj->spr, (sfVector2f){-0.5, 0.0});
         if (time.microseconds > 100000.0)
             move_laser_rect(obj, 77, 77, 3);
     }
     else {
-        // printf("%s\n", "firing");
         sfSprite_move(obj->spr, (sfVector2f){-0.095, 0.0});
         if (time.microseconds > 100000.0)
             move_laser_rect(obj, 308, 77, 2);

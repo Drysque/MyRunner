@@ -40,7 +40,7 @@ int my_runner(char **av)
         go_on = 84;
     create_my_ressources(window, obj_box, sound_box, score);
     while (sfRenderWindow_isOpen(window) && (!go_on || go_on == 3)) {
-        //
+
         draw_my_sprites(window, obj_box);
         sfRenderWindow_display(window);
         move_env(obj_box);
@@ -48,14 +48,14 @@ int my_runner(char **av)
         move_obstacles(obj_box);
         play_sounds(obj_box, sound_box);
         update_score(obj_box, score);
-        //
+
         if (!start_status)
             start_status = wait_for_start(obj_box, sound_box, window);
         close_my_window(window);
-        //
-        go_on = spawn_obstacles(array_map, game_clock, obj_box);
-        monitor_death(window, &go_on, obj_box, sound_box);
+
+        go_on = spawn_obstacles(array_map, game_clock, obj_box);//obligatory here 4 args
+        monitor_death(window, &go_on, obj_box, sound_box);//obligatory here 4 args
     }
     destroy_my_ressources(window, obj_box, sound_box, score);
     return go_on;
-}
+}//28 lignes. while à faire en 4 lignes
