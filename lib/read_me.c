@@ -22,6 +22,7 @@ static bool check_file_quality(char const *str)
         if (wrong_char(str[i]))
             return false;
     if (get_lines(str) != 4)
+        return false;
     return true;
 }
 
