@@ -12,6 +12,7 @@ RMF     =       rm -f
 CFLAGS	=	-I./include/
 
 SRC	=	src/my_runner.c				\
+		src/animate_death.c			\
 		src/destroy_my_ressources.c	\
 		src/draw_my_sprites.c		\
 		src/check_args.c			\
@@ -23,6 +24,7 @@ SRC	=	src/my_runner.c				\
 		src/close_my_window.c		\
 		src/init_my_ressources.c	\
 		src/init_my_score.c			\
+		src/monitor_death.c		\
 		src/move_barry.c			\
 		src/move_env.c				\
 		src/move_laser.c			\

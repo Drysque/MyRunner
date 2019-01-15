@@ -10,19 +10,16 @@
 static void random_spawn(game_object **obj_box, sfVector2f front_player,
     sfVector2f ind_laser, sfVector2f ind_zapper)
 {
-    int random_gen = rand() % 10;
+    int random_gen = rand() % 5;
 
     switch (random_gen) {
         case 0: sfSprite_setPosition(obj_box[13]->spr, front_player);
-            printf("%s\n", "MISSILE");
             break;
         case 1: sfSprite_setPosition(obj_box[15]->spr, ind_laser);
-        printf("%s\n", "LASER");
             break;
         case 2: case 3: sfSprite_setPosition(obj_box[16]->spr, ind_zapper);
             break;
-        default: printf("%s\n", "NOTHING");
-            break;
+        default: break;
     }
 }
 
@@ -56,7 +53,7 @@ static int set_obstacles(char **array_map, game_object **obj_box,
 
     //add score
     if (array_map[0][current_slot] == '\0')
-        return 2;
+        return 3;
     for (int i = 0; i < 4; i++)
         obstacles[i] = array_map[i][current_slot];
     if (array_map[0][current_slot] != 'i')

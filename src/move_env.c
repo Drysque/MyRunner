@@ -24,7 +24,6 @@ void move_env(game_object **obj_box)
     parallax_mov(obj_box[4], -740, (sfVector2f){2196.0, 13.0});
     parallax_mov(obj_box[5], -740, (sfVector2f){2196.0, 13.0});
     parallax_mov(obj_box[6], -740, (sfVector2f){2196.0, 13.0});
-
     parallax_mov(obj_box[7], -1918, (sfVector2f){1920.0, 0.0});
     parallax_mov(obj_box[8], -1918, (sfVector2f){1920.0, 0.0});
     parallax_mov(obj_box[9], -2000, (sfVector2f){1920.0, 500.0});

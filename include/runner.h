@@ -35,6 +35,7 @@
 14 - Missile Warn
 15 - Laser SS
 16 - Zapper SS
+17 - Game Over
 */
 
 typedef struct game_object_s
@@ -100,6 +101,10 @@ void update_score(game_object **obj_box, score_t *score);
 void play_sounds(game_object **obj_box, sound_t **sound_box);
 sfRenderWindow *create_my_window(int width, int height, int bpp);
 void draw_my_sprites(sfRenderWindow *window, game_object **obj_box);
+void monitor_death(sfRenderWindow *window, int *go_on,
+    game_object **obj_box, sound_t **sound_box);
+void animate_death(sfRenderWindow *window, game_object **obj_box,
+    sound_t **sound_box);
 int spawn_obstacles(char **array_map, sfClock *game_clock,
     game_object **obj_box);
 void create_my_ressources(sfRenderWindow *window, game_object **obj_box,

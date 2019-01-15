@@ -39,6 +39,7 @@ void init_my_ressources(game_object **obj_box)
     sfSprite_setPosition(obj_box[14]->spr, (sfVector2f){-2000.0, 0.0});
     sfSprite_setPosition(obj_box[15]->spr, (sfVector2f){-2000.0, 0.0});
     sfSprite_setPosition(obj_box[16]->spr, (sfVector2f){-2000.0, 0.0});
+    sfSprite_setColor(obj_box[17]->spr, (sfColor){255, 255, 255, 0});
 
     obj_box[1]->vec = (sfVector2f){0.0, 0.0};
     //for
@@ -62,7 +63,7 @@ void init_my_ressources(game_object **obj_box)
     obj_box[1]->rect = (sfIntRect){0, 0, 59, 66};
     obj_box[13]->rect = (sfIntRect){0, 0, 45, 29};
     obj_box[15]->rect = (sfIntRect){0, 0, 608, 77};
-    obj_box[16]->rect = (sfIntRect){0, 0, 188, 48};
+    obj_box[16]->rect = (sfIntRect){0, 0, 118, 48};
     obj_box[1]->clock = sfClock_create();
     obj_box[13]->clock = sfClock_create();
     obj_box[15]->clock = sfClock_create();

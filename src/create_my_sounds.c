@@ -28,6 +28,4 @@ void create_my_sounds(sound_t **sound_box)
     sfMusic_setVolume(sound_box[0]->music, 35.0);
     sfMusic_setVolume(sound_box[1]->music, 35.0);
     sfMusic_setVolume(sound_box[2]->music, 35.0);
-    // sfMusic_setVolume(sound_box[3]->music, 100.0);
-    // sfMusic_setVolume(sound_box[4]->music, 100.0);
 }

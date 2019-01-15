@@ -52,6 +52,7 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
     destroy_env(obj_box[14]);
     destroy_env(obj_box[15]);
     destroy_env(obj_box[16]);
+    destroy_env(obj_box[17]);
     destroy_music(sound_box[0]);
     destroy_music(sound_box[1]);
     destroy_music(sound_box[2]);

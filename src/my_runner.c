@@ -28,7 +28,7 @@ static bool wait_for_start(game_object **obj_box, sound_t **sound_box,
 int my_runner(char **av)
 {
     sfRenderWindow *window = create_my_window(1920, 1080, 32);
-    game_object **obj_box = malloc(sizeof(game_object *) * 17);
+    game_object **obj_box = malloc(sizeof(game_object *) * 18);
     sound_t **sound_box = malloc(sizeof(sound_t *) * 11);
     score_t *score = malloc(sizeof(score_t));
     sfClock *game_clock = sfClock_create();
@@ -39,7 +39,7 @@ int my_runner(char **av)
     if ((array_map = file_to_array(av[1], array_map)) == NULL)
         go_on = 84;
     create_my_ressources(window, obj_box, sound_box, score);
-    while (sfRenderWindow_isOpen(window) && !go_on) {
+    while (sfRenderWindow_isOpen(window) && (!go_on || go_on == 3)) {
         //
         draw_my_sprites(window, obj_box);
         sfRenderWindow_display(window);
@@ -54,7 +54,7 @@ int my_runner(char **av)
         close_my_window(window);
         //
         go_on = spawn_obstacles(array_map, game_clock, obj_box);
-        go_on = check_death(go_on, obj_box);
+        monitor_death(window, &go_on, obj_box, sound_box);
     }
     destroy_my_ressources(window, obj_box, sound_box, score);
     return go_on;
