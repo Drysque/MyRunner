@@ -63,11 +63,14 @@ static int set_obstacles(char **array_map, game_object **obj_box,
     return 0;
 }
 
-int spawn_obstacles(char **array_map, sfClock *game_clock,
-    game_object **obj_box)
+int spawn_obstacles(char **array_map, game_object **obj_box)
 {
-    sfInt64 elapsed = sfClock_getElapsedTime(game_clock).microseconds / 500000;
+    static sfClock *game_clock = NULL;
+    sfInt64 elapsed = 0;
 
+    if (game_clock == NULL)
+        game_clock = sfClock_create();
+    elapsed = sfClock_getElapsedTime(game_clock).microseconds / 500000;
     if (elapsed > 8)
         return (set_obstacles(array_map, obj_box, game_clock));
     return 0;
