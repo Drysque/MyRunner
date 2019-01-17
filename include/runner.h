@@ -34,7 +34,8 @@
 15 - Laser SS
 16 - Zapper SS
 17 - Game Over
-*/
+18 - Menu
+19*/
 
 typedef struct game_object_s
 {
@@ -60,7 +61,7 @@ typedef struct game_object_s
 11 - missile-death
 12 - laser-death
 13 - zapper - death
-*/
+14*/
 
 typedef struct sound_s
 {

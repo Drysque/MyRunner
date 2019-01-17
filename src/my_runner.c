@@ -49,7 +49,7 @@ static void animate_screen(game_object **obj_box, sound_t **sound_box,
 int my_runner(char **av)
 {
     sfRenderWindow *window = create_my_window(1920, 1080, 32);
-    game_object **obj_box = malloc(sizeof(game_object *) * 18);
+    game_object **obj_box = malloc(sizeof(game_object *) * 19);
     sound_t **sound_box = malloc(sizeof(sound_t *) * 14);
     score_t *score = malloc(sizeof(score_t));
     char **array_map = file_to_array(av[1], array_map);
@@ -62,7 +62,7 @@ int my_runner(char **av)
     while (sfRenderWindow_isOpen(window) && (!go_on || go_on == 3)) {
         animate_screen(obj_box, sound_box, window, score);
         start_and_quit(&start_status, obj_box, sound_box, window);
-        go_on = spawn_obstacles(array_map,obj_box);
+        go_on = spawn_obstacles(array_map, obj_box);
         monitor_death(window, &go_on, obj_box, sound_box);
     }
     destroy_my_ressources(window, obj_box, sound_box, score);

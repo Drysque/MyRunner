@@ -19,6 +19,7 @@ static void set_sprites_pos(game_object **obj_box)
     sfSprite_setPosition(obj_box[10]->spr, (sfVector2f){500.0, 500.0});
     sfSprite_setPosition(obj_box[11]->spr, (sfVector2f){1000.0, 250.0});
     sfSprite_setPosition(obj_box[12]->spr, (sfVector2f){800.0, 500.0});
+    sfSprite_setPosition(obj_box[18]->spr, (sfVector2f){400.0, 170.0});
     for (int i = 13; i < 17; i++)
         sfSprite_setPosition(obj_box[i]->spr, (sfVector2f){-2000.0, 0.0});
 }
@@ -35,6 +36,7 @@ static void set_sprites_scale(game_object **obj_box)
     sfSprite_setScale(obj_box[15]->spr, (sfVector2f){3.175, 3.175});
     sfSprite_setScale(obj_box[16]->spr, (sfVector2f){3.175, 3.175});
     sfSprite_setColor(obj_box[17]->spr, (sfColor){255, 255, 255, 0});
+    sfSprite_setScale(obj_box[18]->spr, (sfVector2f){1.70, 1.70});
 }
 
 static void set_sprites_vec(game_object **obj_box)
@@ -52,6 +54,7 @@ static void set_sprites_vec(game_object **obj_box)
     obj_box[13]->vec = (sfVector2f){-40.0, 0.0};
     obj_box[15]->vec = (sfVector2f){-40.0, 0.0};
     obj_box[16]->vec = (sfVector2f){-9.0, 0.0};
+    obj_box[18]->vec = (sfVector2f){0.0, -12.0};
 }
 
 void init_my_ressources(game_object **obj_box)

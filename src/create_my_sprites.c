@@ -34,4 +34,5 @@ void create_my_sprites(game_object **obj_box)
     create_env(obj_box[15], "./image_src/LaserSheet.png");
     create_env(obj_box[16], "./image_src/ZapperSheet.png");
     create_env(obj_box[17], "./image_src/GO.png");
+    create_env(obj_box[18], "./image_src/Menu.png");
 }

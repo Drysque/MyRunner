@@ -23,7 +23,7 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
     sound_t **sound_box, score_t *score)
 {
     sfRenderWindow_destroy(window);
-    for (int i = 0; i < 18; i++) {
+    for (int i = 0; i < 19; i++) {
         destroy_env(obj_box[i]);
         free(obj_box[i]);
     }

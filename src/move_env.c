@@ -19,6 +19,8 @@ void move_env(game_object **obj_box)
 {
     if (sfSprite_getPosition(obj_box[0]->spr).x > -1500)
         sfSprite_move(obj_box[0]->spr, obj_box[0]->vec);
+    if (sfSprite_getPosition(obj_box[18]->spr).y > -700)
+        sfSprite_move(obj_box[18]->spr, obj_box[18]->vec);
     for (int i = 3; i < 7; i++)
         parallax_mov(obj_box[i], -740, (sfVector2f){2196.0, 13.0});
     parallax_mov(obj_box[7], -1918, (sfVector2f){1920.0, 0.0});

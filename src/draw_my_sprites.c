@@ -29,4 +29,5 @@ void draw_my_sprites(sfRenderWindow *window, game_object **obj_box)
     sfRenderWindow_drawSprite(window, obj_box[15]->spr, NULL);
     sfRenderWindow_drawSprite(window, obj_box[16]->spr, NULL);
     sfRenderWindow_drawSprite(window, obj_box[17]->spr, NULL);
+    sfRenderWindow_drawSprite(window, obj_box[18]->spr, NULL);
 }
