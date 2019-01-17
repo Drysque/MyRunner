@@ -9,14 +9,14 @@
 #include <unistd.h>
 #include "runner.h"
 
-static bool my_exemple(void)
+static bool my_example(void)
 {
-    char const exemple[] = "EXEMPLES:\nShort map with \\s to indicate the end \
-of the game:\n x    -   \\\n          \\\n    =     \\\n          \\\n\
-Standard long map:\n-   =        x x   x =\n  x  -    x   =    x  \n    \
-x       -- =  x   \n x     -    ==       -\n";
+    char const example[] = "EXAMPLES: Copy-paste them in a .txt file\nShort map\
+ with \\s to indicate the end of the game:\nx -\\\n   \\\n = \\\n   \\\nStandar\
+d long map:\n=   x -x=-=   x -x=-=   x -x=-\\\n  -x = = x  -x = = x  -x = = x\\\
+\n- = - x  =- = - x  =- = - x  =\\\nx x = = x x x   = x x x   = x \\\n";
 
-    write(1, exemple, my_strlen(exemple));
+    write(1, example, my_strlen(example));
     return false;
 }
 
@@ -37,7 +37,7 @@ saved, you can use a \'\\\' at the end of the lines.\n\nIf the file contains \
 any other character, the map is considered false and the game won't launch.\n\
 If the file has more than 4 lines, the map is considered false and the game \
 won't launch.\nIf the lines are of different length, the map is considered \
-false and the game won't launch.\n\nRelaunch with -e for exemples.\n";
+false and the game won't launch.\n\nRelaunch with -e for examples.\n";
 
     write(1, obs, my_strlen(obs));
     return false;
@@ -50,7 +50,7 @@ static bool my_usage(void)
 ./my_runner -i\n\t\tlaunches the game in infinite mode and random obstacles\n\t\
 ./my_runner -h\n\t\tdisplays this message and quits\n\t\
 ./my_runner -m\n\t\tdisplays a message to help you build your map and quits\n\t\
-./my_runner -e\n\t\tdisplays an exemple of a map and quits\n\
+./my_runner -e\n\t\tdisplays an example of a map and quits\n\
 \nDESCRIPTION:\n\
 \tMy_runner is a finite running game\n\
 \tBuild your own map with obstacles\n\
@@ -60,7 +60,8 @@ static bool my_usage(void)
 \nRETURN VALUES:\n\
 \t0: Player left the game with escape\n\
 \t1: Player died\n\
-\t2: Victory\n";
+\t2: Victory\n\
+\t84: Game could not launch (invalid map, ...)\n";
 
     write(1, usage, my_strlen(usage));
     return false;
@@ -87,6 +88,6 @@ bool check_args(int ac, char **av, char **env)
     if (av[1][0] == '-' && av[1][1] == 'm' && av[1][2] == '\0')
         return my_obs();
     if (av[1][0] == '-' && av[1][1] == 'e' && av[1][2] == '\0')
-        return my_exemple();
+        return my_example();
     return true;
 }

@@ -13,8 +13,6 @@ CFLAGS	=	-I./include/
 
 SRC	=	src/my_runner.c				\
 		src/animate_death.c			\
-		src/destroy_my_ressources.c	\
-		src/draw_my_sprites.c		\
 		src/check_args.c			\
 		src/check_death.c			\
 		src/create_my_ressources.c	\
@@ -22,6 +20,8 @@ SRC	=	src/my_runner.c				\
 		src/create_my_sprites.c		\
 		src/create_my_window.c		\
 		src/close_my_window.c		\
+		src/destroy_my_ressources.c	\
+		src/draw_my_sprites.c		\
 		src/init_my_ressources.c	\
 		src/init_my_score.c			\
 		src/monitor_death.c			\
