@@ -20,8 +20,6 @@ static void animate_victory(sfRenderWindow *window, game_object **obj_box,
     else
         while (sfRenderWindow_isOpen(window)) {
             close_my_window(window);
-            if (sfKeyboard_isKeyPressed(sfKeySpace))
-                break;
             *go_on = 2;
         }
 }

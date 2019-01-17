@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** spawn_obstacles.c
 ** File description:
-**
+** spawns the obstacles
 */
 
 #include "runner.h"
