@@ -45,7 +45,7 @@ false and the game won't launch.\n\nRelaunch with -e for examples.\n";
 
 static bool my_usage(void)
 {
-    char const usage[] = "USAGE: \n\t\
+    char const usage[] = "USAGE:\n\t\
 ./my_runner <file>\n\t\tlaunches the game with the given map\n\t\
 ./my_runner -i\n\t\tlaunches the game in infinite mode and random obstacles\n\t\
 ./my_runner -h\n\t\tdisplays this message and quits\n\t\
@@ -74,8 +74,8 @@ static bool my_null_env(void)
     char const env[] = "used with an empty environment!\n";
 
     write(2, error, my_strlen(error));
-    write(1, try, my_strlen(try));
-    write(1, env, my_strlen(env));
+    write(2, try, my_strlen(try));
+    write(2, env, my_strlen(env));
     return false;
 }
 

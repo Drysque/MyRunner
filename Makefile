@@ -44,17 +44,17 @@ SRC	=	src/my_runner.c				\
 
 MAIN	=	src/main.c
 
-# TESTSRC	=	tests/test_my_runner.c
+TESTSRC	=	tests/test_my_runner.c
 
 NAME	=	my_runner
 
-# CRIT	=	unit_tests
+CRIT	=	unit_tests
 
 CSFML	=	-l csfml-graphics -l csfml-system -l csfml-window -l csfml-audio
 
-# CRITFLAGS	=	--coverage -lcriterion
+CRITFLAGS	=	--coverage -lcriterion
 
-# GCOVR	=	*.gc*
+GCOVR	=	*.gc*
 
 all:	$(NAME)
 
@@ -64,15 +64,15 @@ $(NAME):
 debug:	fclean
 	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS) -g3 -Wall -Wextra
 
-# tests_run: re
-# 	 $(CC) -o $(CRIT) $(SRC) $(TESTSRC) $(CRITFLAGS) $(CSFML) $(CFLAGS)
-# 	 ./$(CRIT)
+tests_run: re
+	 $(CC) -o $(CRIT) $(SRC) $(TESTSRC) $(CRITFLAGS) $(CSFML) $(CFLAGS)
+	 ./$(CRIT)
 
 clean:
-#	$(RMF) $(GCOVR)
+	$(RMF) $(GCOVR)
 
 fclean:	clean
 	$(RMF) $(NAME)
-#	$(RMF) $(CRIT)
+	$(RMF) $(CRIT)
 
 re:	fclean all

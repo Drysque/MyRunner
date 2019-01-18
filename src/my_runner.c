@@ -25,7 +25,7 @@ static bool wait_for_start(game_object **obj_box, sound_t **sound_box,
     return new_status;
 }
 
-static void start_and_quit(bool *start_status, game_object **obj_box,
+void start_and_quit(bool *start_status, game_object **obj_box,
     sound_t **sound_box, sfRenderWindow *window)
 {
     if (!(*start_status))
@@ -33,7 +33,7 @@ static void start_and_quit(bool *start_status, game_object **obj_box,
     close_my_window(window);
 }
 
-static void animate_screen(game_object **obj_box, sound_t **sound_box,
+void animate_screen(game_object **obj_box, sound_t **sound_box,
     sfRenderWindow *window, score_t *score)
 {
     draw_my_sprites(window, obj_box);

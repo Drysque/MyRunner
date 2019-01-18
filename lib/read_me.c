@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** read_me.c
 ** File description:
-** -
+** reads the file
 */
 
 #include <fcntl.h>
