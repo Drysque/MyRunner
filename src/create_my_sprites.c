@@ -1,7 +1,7 @@
 /*
+** EPITECH PROJECT, 2018
 ** create_my_sprites.c
 ** File description:
-** EPITECH PROJECT, 2018
 ** creates the sprites
 */
 
