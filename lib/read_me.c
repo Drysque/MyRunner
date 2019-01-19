@@ -49,16 +49,14 @@ char **read_me(char const *filepath)
 
     if ((fd = open(filepath, O_RDONLY)) == -1)
         return (my_error("Could not open file\n", 20, fd));
-    else if ((size = get_file_size(filepath)) <= 0)
+    if ((size = get_file_size(filepath)) <= 0)
         return (my_error("Invalid file\n", 13, fd));
-    else if ((buffer = malloc(sizeof(char) * (size + 1))) == NULL)
+    if ((buffer = malloc(sizeof(char) * (size + 1))) == NULL)
         return (my_error("Malloc failed, ironic...\n", 14, fd));
-    else if ((read(fd, buffer, size)) == -1)
+    if ((read(fd, buffer, size)) == -1)
         return (my_error("Could not read file\n", 20, fd));
-    else if (!check_file_quality(buffer))
+    if (!check_file_quality(buffer))
         return (my_error("Invalid map\n", 12, fd));
-    else {
-        close(fd);
-        return (my_str_to_line_array(buffer));
-    }
+    close(fd);
+    return (my_str_to_line_array(buffer));
 }

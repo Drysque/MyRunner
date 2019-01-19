@@ -13,13 +13,13 @@ static void random_spawn(game_object **obj_box, sfVector2f front_player,
     int random_gen = rand() % 5;
 
     switch (random_gen) {
-        case 0: sfSprite_setPosition(obj_box[13]->spr, front_player);
-            break;
-        case 1: sfSprite_setPosition(obj_box[15]->spr, ind_laser);
-            break;
-        case 2: case 3: sfSprite_setPosition(obj_box[16]->spr, ind_zapper);
-            break;
-        default: break;
+    case 0: sfSprite_setPosition(obj_box[13]->spr, front_player);
+        break;
+    case 1: sfSprite_setPosition(obj_box[15]->spr, ind_laser);
+        break;
+    case 2: case 3: sfSprite_setPosition(obj_box[16]->spr, ind_zapper);
+        break;
+    default: break;
     }
 }
 
@@ -32,15 +32,15 @@ static void summon_obs(char *obstacles, game_object **obj_box, int line)
     if (line > 3)
         return;
     switch (obstacles[line]) {
-        case '-': sfSprite_setPosition(obj_box[13]->spr, front_player);
-            break;
-        case 'x': sfSprite_setPosition(obj_box[16]->spr, ind_zapper);
-            break;
-        case '=': sfSprite_setPosition(obj_box[15]->spr, ind_laser);
-            break;
-        case 'i': random_spawn(obj_box, front_player, ind_laser, ind_zapper);
-            break;
-        default: break;
+    case '-': sfSprite_setPosition(obj_box[13]->spr, front_player);
+        break;
+    case 'x': sfSprite_setPosition(obj_box[16]->spr, ind_zapper);
+        break;
+    case '=': sfSprite_setPosition(obj_box[15]->spr, ind_laser);
+        break;
+    case 'i': random_spawn(obj_box, front_player, ind_laser, ind_zapper);
+        break;
+    default: break;
     }
     summon_obs(obstacles, obj_box, ++line);
 }

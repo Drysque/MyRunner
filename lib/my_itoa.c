@@ -16,8 +16,7 @@ char *my_itoa(int nbr, int neg)
 
     if (nbr == 0)
         return (result = "0");
-    for (size_int = 1; save >= 1;
-        save = save / 10, size_int = size_int * 10, i++);
+    for (size_int = 1; save >= 1; save /= 10, size_int *= 10, i++);
     result = malloc(sizeof(char *) * (i + 1 + neg));
     size_int = size_int / 10;
     if (neg == 1)

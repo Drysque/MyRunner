@@ -11,10 +11,10 @@
 
 static bool my_example(void)
 {
-    char const example[] = "EXAMPLES: Copy-paste them in a .txt file\nShort map\
- with \\s to indicate the end of the game:\nx -\\\n   \\\n = \\\n   \\\nStandar\
-d long map:\n=   x -x=-=   x -x=-=   x -x=-\\\n  -x = = x  -x = = x  -x = = x\\\
-\n- = - x  =- = - x  =- = - x  =\\\nx x = = x x x   = x x x   = x \\\n";
+    char const example[] = "EXAMPLES: Copy-paste them in a .txt file\nShort \
+map with \\s to indicate the end of the game:\nx -\\\n   \\\n = \\\n   \\\n\
+Standard long map:\n=   x -x=-=   x -x=-=   x -x=-\\\n  -x = = x  -x = = x  -x \
+= = x\\\n- = - x  =- = - x  =- = - x  =\\\nx x = = x x x   = x x x   = x \\\n";
 
     write(1, example, my_strlen(example));
     return false;

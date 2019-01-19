@@ -11,8 +11,8 @@ static bool laser_collide(game_object **obj_box, sfMusic *laser_death)
 {
     sfVector2f player = sfSprite_getPosition(obj_box[1]->spr);
     sfVector2f laser = sfSprite_getPosition(obj_box[15]->spr);
-    bool min =  (player.y - 10) <= laser.y;
-    bool max =  player.y >= (laser.y + 140);
+    bool min = (player.y - 10) <= laser.y;
+    bool max = player.y >= (laser.y + 140);
     bool firing = obj_box[15]->rect.top > 307;
 
     if (!min && !max && firing) {
