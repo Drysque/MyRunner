@@ -7,7 +7,7 @@
 
 #include "runner.h"
 
-void init_my_score(sfRenderWindow *window, score_t *score)
+void init_my_score(score_t *score)
 {
     score->score_number = 0;
     score->font = sfFont_createFromFile("font/NewAthleticM54.ttf");

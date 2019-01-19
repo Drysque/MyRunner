@@ -36,7 +36,7 @@ static void after_death_zapper(game_object *obj)
     sfSprite_setTextureRect(obj->spr, obj->rect);
 }
 
-static void after_death_obstacles(game_object **obj_box, int move)
+static void after_death_obstacles(game_object **obj_box)
 {
     int missile_width = sfSprite_getPosition(obj_box[13]->spr).x;
     int laser_width = sfSprite_getPosition(obj_box[15]->spr).x;
@@ -84,7 +84,7 @@ void animate_death(sfRenderWindow *window, game_object **obj_box,
         after_death_env(obj_box[16], -740, move);
         draw_my_sprites(window, obj_box);
         sfRenderWindow_display(window);
-        after_death_obstacles(obj_box, move);
+        after_death_obstacles(obj_box);
         move = (move < 0) ? move + 0.1 : 0;
     }
 }

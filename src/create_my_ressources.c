@@ -19,7 +19,7 @@ void create_my_ressources(sfRenderWindow *window, game_object **obj_box,
     create_my_sprites(obj_box);
     create_my_sounds(sound_box);
     init_my_ressources(obj_box);
-    init_my_score(window, score);
+    init_my_score(score);
     sfMusic_play(sound_box[1]->music);
     sfMusic_setLoop(sound_box[0]->music, sfTrue);
     sfMusic_setLoop(sound_box[1]->music, sfTrue);
