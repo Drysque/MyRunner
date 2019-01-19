@@ -23,7 +23,7 @@ static bool long_enough(char const *str)
 {
     int count = 0;
 
-    for (count; str && str[count]; count++);
+    for (count = 0; str && str[count]; count++);
     if (count < 2)
         return false;
     return true;

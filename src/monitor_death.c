@@ -7,8 +7,8 @@
 
 #include "runner.h"
 
-static void animate_victory(sfRenderWindow *window, game_object **obj_box,
-    sound_t **sound_box, int *go_on)
+static void animate_victory(sfRenderWindow *window,
+    game_object **obj_box, int *go_on)
 {
     static unsigned char alpha = 0;
     static sfClock *victory_clock = NULL;
@@ -31,5 +31,5 @@ void monitor_death(sfRenderWindow *window, int *go_on,
     if (*go_on == 1)
         animate_death(window, obj_box, sound_box);
     if (*go_on == 3)
-        animate_victory(window, obj_box, sound_box, go_on);
+        animate_victory(window, obj_box, go_on);
 }

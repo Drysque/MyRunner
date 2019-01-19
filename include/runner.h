@@ -15,28 +15,6 @@
 #include <stdbool.h>
 #include <time.h>
 
-/*
-0 - LabEmpty
-1 - Barry SS
-2 - LabEntry (menu)
-3 - Slide
-4 - EmptySlide
-5 - Slide2
-6 - EmptySlide2
-7 - Space-Space
-8 - Earth-Space
-9 - Earth
-10 - Moon
-11 - Mars
-12 - Saturn
-13 - Missile SS
-14 - Missile Warn
-15 - Laser SS
-16 - Zapper SS
-17 - Game Over
-18 - Menu
-19*/
-
 typedef struct game_object_s
 {
     sfTexture *tex;
@@ -45,23 +23,6 @@ typedef struct game_object_s
     sfIntRect rect;
     sfClock *clock;
 } game_object;
-
-/*
-0 - constant music
-1 - menu
-2 - Smash
-3 - jet-on
-4 - jet-off
-5 - missile-on
-6 - missile-warn
-7 - laser-warn
-8 - laser-start
-9 - laser-fire-stop
-10 - zapper-fire
-11 - missile-death
-12 - laser-death
-13 - zapper - death
-14*/
 
 typedef struct sound_s
 {
@@ -85,6 +46,7 @@ char **file_to_array(char const *str, char **array);
 void my_strncpy(char *dest, char const *src, int n);
 
 void move_zapper(game_object *obj);
+void init_my_score(score_t *score);
 void move_missile(game_object *obj);
 void move_env(game_object **obj_box);
 void move_barry(game_object **obj_box);
@@ -95,7 +57,6 @@ void move_laser(game_object *obj, int width);
 void create_my_sprites(game_object **obj_box);
 void init_my_ressources(game_object **obj_box);
 void update_score(game_object **obj_box, score_t *score);
-void init_my_score(sfRenderWindow *window, score_t *score);
 void play_sounds(game_object **obj_box, sound_t **sound_box);
 int spawn_obstacles(char **array_map, game_object **obj_box);
 sfRenderWindow *create_my_window(int width, int height, int bpp);
@@ -111,3 +72,42 @@ void destroy_my_ressources(sfRenderWindow *window, game_object **obj_box,
     sound_t **sound_box, score_t *score);
 
 #endif
+
+/*
+0 - LabEmpty
+1 - Barry SS
+2 - LabEntry (menu)
+3 - Slide
+4 - EmptySlide
+5 - Slide2
+6 - EmptySlide2
+7 - Space-Space
+8 - Earth-Space
+9 - Earth
+10 - Moon
+11 - Mars
+12 - Saturn
+13 - Missile SS
+14 - Missile Warn
+15 - Laser SS
+16 - Zapper SS
+17 - Game Over
+18 - Menu
+19*/
+
+/*
+0 - constant music
+1 - menu
+2 - Smash
+3 - jet-on
+4 - jet-off
+5 - missile-on
+6 - missile-warn
+7 - laser-warn
+8 - laser-start
+9 - laser-fire-stop
+10 - zapper-fire
+11 - missile-death
+12 - laser-death
+13 - zapper - death
+14*/

@@ -24,7 +24,7 @@ char **my_str_to_line_array(char const *str)
     char **array = malloc(sizeof(char *) * (get_lines(str) + 1));
 
     for (int i = 0; str != 0 && str[i] != '\0'; i++) {
-        for (i; str[i] != '\n' && str[i] != '\0'; i++)
+        for (; str[i] != '\n' && str[i] != '\0'; i++)
             length++;
         if (str[i] == '\n' || str[i] == '\0') {
             array[a] = malloc(sizeof(char) * (length + 1));
