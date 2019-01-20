@@ -38,13 +38,14 @@ static void barry_jump(game_object *obj, int height)
         obj->vec.y += -0.6;
     else if (height < 830)
         obj->vec.y += 0.6;
+    obj->vec.y = obj->vec.y + 0;
     if (height >= 150 && height <= 830)
         sfSprite_move(obj->spr, obj->vec);
     else if (height < 150) {
         sfSprite_setPosition(obj->spr, (sfVector2f){500.0, 151.0});
         obj->vec.y = 0.0;
     }
-    else if (sfKeyboard_isKeyPressed(sfKeySpace)){
+    else if (sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfSprite_setPosition(obj->spr, (sfVector2f){500.0, 829.0});
         obj->vec.y = 0.0;
     }

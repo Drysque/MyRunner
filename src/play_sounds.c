@@ -42,7 +42,7 @@ static void play_laser(game_object **obj_box, sound_t **sound_box)
         if (!charge_playing)
             sfMusic_play(sound_box[7]->music);
     }
-    else if (width > 0){
+    else if (width > 0) {
         if (!fire_playing) {
             sfMusic_play(sound_box[8]->music);
             sfMusic_play(sound_box[9]->music);

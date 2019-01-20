@@ -12,7 +12,7 @@ sfRenderWindow *create_my_window(int width, int height, int bpp)
     sfRenderWindow *window;
     sfVideoMode video_mode = {width, height, bpp};
 
-    window = sfRenderWindow_create(video_mode, "My_Runner>",
+    window = sfRenderWindow_create(video_mode, "My_Runner",
         sfResize | sfClose | sfFullscreen, NULL);
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     return (window);

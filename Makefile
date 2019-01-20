@@ -65,8 +65,8 @@ debug:	fclean
 	$(CC) -o $(NAME) $(MAIN) $(SRC) $(CSFML) $(CFLAGS) -g3 -Wall -Wextra
 
 tests_run: re
-	 $(CC) -o $(CRIT) $(SRC) $(TESTSRC) $(CRITFLAGS) $(CSFML) $(CFLAGS)
-	 ./$(CRIT)
+	$(CC) -o $(CRIT) $(SRC) $(TESTSRC) $(CRITFLAGS) $(CSFML) $(CFLAGS)
+	./$(CRIT)
 
 clean:
 	$(RMF) $(GCOVR)

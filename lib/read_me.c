@@ -51,8 +51,9 @@ char **read_me(char const *filepath)
         return (my_error("Could not open file\n", 20, fd));
     if ((size = get_file_size(filepath)) <= 0)
         return (my_error("Invalid file\n", 13, fd));
-    if ((buffer = malloc(sizeof(char) * (size + 1))) == NULL)
-        return (my_error("Malloc failed, ironic...\n", 14, fd));
+    buffer = malloc(sizeof(char) * (size + 1));
+    if (buffer == NULL)
+        return (my_error("Malloc failed\n", 14, fd));
     if ((read(fd, buffer, size)) == -1)
         return (my_error("Could not read file\n", 20, fd));
     if (!check_file_quality(buffer))
