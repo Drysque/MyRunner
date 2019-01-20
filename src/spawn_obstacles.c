@@ -51,8 +51,9 @@ static int set_obstacles(char **array_map, game_object **obj_box,
     char *obstacles = malloc(sizeof(char) * 4);
     static int current_slot = 0;
 
-    if (array_map[0][current_slot] == '\0')
-        return 3;
+    for (int i = 0; i < 4; i++)
+        if (array_map[i][current_slot] == '\0')
+            return 3;
     for (int i = 0; i < 4; i++)
         obstacles[i] = array_map[i][current_slot];
     if (array_map[0][current_slot] != 'i')
