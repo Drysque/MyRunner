@@ -4,3 +4,5 @@ a 'x' will summon a electrical field that doesn't move.
 a '-' will summon a homing missile. It will target the player no matter where you place it.
 A blank space is used to separate obstacles.
 A \ is ignored. Use is to cancel the auto-deletion of spaces at the end of lines.
+
+launch with -e for examples

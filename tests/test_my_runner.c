@@ -22,7 +22,7 @@ void redirect_all_stdout(void)
     cr_redirect_stderr();
 }
 
-Test(my_runner, test_my_runner)
+Test(my_runner, test_my_runner2)
 {
     sfRenderWindow *window = create_my_window(1920, 1080, 32);
     game_object **obj_box = malloc(sizeof(game_object *) * 19);
@@ -39,7 +39,6 @@ Test(my_runner, test_my_runner)
     start_and_quit(&start_status, obj_box, sound_box, window);
     go_on = spawn_obstacles(array_map, obj_box);
     monitor_death(window, &go_on, obj_box, sound_box);
-    animate_death(window, obj_box, sound_box);
     destroy_my_ressources(window, obj_box, sound_box, score);
     cr_expect_eq(sfFalse, sfRenderWindow_isOpen(window));
 }
