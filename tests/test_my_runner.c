@@ -129,7 +129,8 @@ saved, you can use a \'\\\' at the end of the lines.\n\nIf the file contains \
 any other character, the map is considered false and the game won't launch.\n\
 If the file has more than 4 lines, the map is considered false and the game \
 won't launch.\nIf the lines are of different length, the map is considered \
-false and the game won't launch.\n\nRelaunch with -e for examples.\n");
+false and the game won't launch.\n\nRelaunch with -e for examples, or use the \
+maps folder.\n");
 }
 
 Test(my_runner, my_example, .init = redirect_all_stdout)
