@@ -1,8 +1,17 @@
-Obstacles spawn depending on where you placed them on the map.
 a '=' will summon a laser that charges and shoots after a period of time.
 a 'x' will summon a electrical field that doesn't move.
 a '-' will summon a homing missile. It will target the player no matter where you place it.
 A blank space is used to separate obstacles.
 A \ is ignored. Use is to cancel the auto-deletion of spaces at the end of lines.
+
+Obstacles spawn depending on where you placed them on the map.
+Any collision with these obstacles will lead to death.
+The game is considered finished when the game reaches the end of a line.
+
+If the file contains any other character, the map is considered false and the game won't launch.
+If the file has more than 4 lines, the map is considered false and the game won't launch.
+If the lines are of different length, the map is considered false and the game won't launch.
+
+If you have trouble getting the length of each lines to match because of trailing spaces being deleted when a file is saved, you can use a '\' at the end of the lines.
 
 launch with -e for examples, or use the maps folder.
