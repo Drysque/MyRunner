@@ -5,4 +5,4 @@ a '-' will summon a homing missile. It will target the player no matter where yo
 A blank space is used to separate obstacles.
 A \ is ignored. Use is to cancel the auto-deletion of spaces at the end of lines.
 
-launch with -e for examples
+launch with -e for examples, or use the maps folder.
